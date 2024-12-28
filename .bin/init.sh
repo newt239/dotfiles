@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/bin/zsh
 
 if [ "$(uname)" != "Darwin" ] ; then
 	echo "Not macOS!"
 	exit 1
 fi
 
-# Set bash
-chsh -s /bin/bash
+# Set zsh
+chsh -s /bin/zsh
 
-# Install xcode
+# Install Xcode command line tools
 xcode-select --install > /dev/null
 
-# Install brew
+# Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" > /dev/null
