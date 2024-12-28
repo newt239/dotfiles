@@ -2,7 +2,12 @@
 
 ## installation
 
+```bash
+make
 ```
-chmod +x install.sh
-./install.sh
+
+## memo
+
+```bash
+git update-index --chmod=+x .bin/*.sh
 ```
