@@ -13,6 +13,7 @@ brew "cpanminus" # Perlのモジュール管理ツール
 brew "curl" # データ転送ツール（HTTP, FTPなど）
 brew "direnv" # 環境変数の自動ロードツール
 brew "gnu-time" # プロセス実行時間を計測するツール
+brew "mise" # バージョン管理ツール
 brew "pinentry" # GPGのパスフレーズ入力用ツール
 brew "wget" # ファイルダウンロードツール
 brew "ffmpeg" # 動画・音声変換ツール
