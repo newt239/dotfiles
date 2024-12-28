@@ -1,0 +1,12 @@
+user.email=ysti2019.win2020.st@gmail.com
+user.name=newt
+commit.gpgsign=true
+init.defaultbranch=main
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+credential.helper=
+credential.helper=/usr/local/share/gcm-core/git-credential-manager
+credential.https://dev.azure.com.usehttppath=true
+gpg.program=/opt/homebrew/bin/gpg

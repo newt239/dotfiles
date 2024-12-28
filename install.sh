@@ -1,19 +1,46 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# 未定義な変数があったら途中で終了する
-set -u
+# Dotfilesディレクトリを固定
+DOTFILES_DIR=$(cd "$(dirname "$0")" && pwd)
 
-# 今のディレクトリ
-# dotfilesディレクトリに移動する
-BASEDIR=$(dirname $0)
-cd $BASEDIR
+# デバッグモードのフラグ（デフォルト: false）
+DEBUG=false
 
-# dotfilesディレクトリにある、ドットから始まり2文字以上の名前のファイルに対して
+# オプション解析
+while getopts "d" opt; do
+  case $opt in
+    d)
+      DEBUG=true
+      ;;
+    *)
+      echo "Usage: $0 [-d (debug mode)]"
+      exit 1
+      ;;
+  esac
+done
+
+# 処理の開始メッセージ
+echo "Setting up dotfiles from: ${DOTFILES_DIR}"
+[ "$DEBUG" = true ] && echo "Running in DEBUG mode. No changes will be made."
+
+# dotfilesディレクトリ内の隠しファイルに対してループ
 for f in .??*; do
+    # 特定のファイルをスキップ
     [ "$f" = ".git" ] && continue
     [ "$f" = ".gitconfig.local.template" ] && continue
     [ "$f" = ".gitmodules" ] && continue
 
-    # シンボリックリンクを貼る
-    ln -snfv ${PWD}/"$f" ~/
+    # シンボリックリンクを作成（またはデバッグ出力）
+    if [ "$DEBUG" = true ]; then
+        echo "DEBUG: Link would be created: ${DOTFILES_DIR}/$f -> ~/$f"
+    else
+        ln -snfv "${DOTFILES_DIR}/$f" ~/
+    fi
 done
+
+# 処理完了メッセージ
+if [ "$DEBUG" = true ]; then
+    echo "DEBUG mode complete. No changes were made."
+else
+    echo "Dotfiles setup complete."
+fi
