@@ -1,0 +1,224 @@
+{
+  "files.eol": "\n",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "editor.formatOnSave": true,
+  "editor.cursorBlinking": "phase",
+  "window.commandCenter": false,
+  "npm.fetchOnlinePackageInfo": false,
+  "editor.parameterHints.enabled": false,
+  "search.showLineNumbers": true,
+  "terminal.integrated.cursorBlinking": true,
+  "editor.formatOnPaste": true,
+  "editor.suggestSelection": "first",
+  "git.autofetch": true,
+  "workbench.sideBar.location": "left",
+  "editor.renderWhitespace": "all",
+  "editor.renderControlCharacters": true,
+  "terminal.integrated.commandsToSkipShell": [
+    "psl.stepIn",
+    "psl.stepOut",
+    "psl.stepOver",
+    "psl.sendToHostTerminal"
+  ],
+  "workbench.colorTheme": "GitHub Dark Default",
+  "explorer.confirmDelete": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.accessibilityPageSize": 12,
+  "csharp.suppressDotnetInstallWarning": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.fontFamily": "PlemolJP35, Consolas, 'Courier New', monospace, 'BIZ UDPゴシック'",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook",
+    "*.pdf": "latex-workshop-pdf-hook"
+  },
+  "python.languageServer": "Pylance",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.profiles.windows": {
+    "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe (migrated)": {
+      "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "args": []
+    }
+  },
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  "liveServer.settings.useLocalIp": true,
+  "liveServer.settings.host": "localhost",
+  "editor.bracketPairColorization.enabled": true,
+  "extensions.ignoreRecommendations": true,
+  "python.defaultInterpreterPath": "C:\\Users\\ff192\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "editor.guides.bracketPairs": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.enableMultiLinePasteWarning": "never",
+  "editor.tabSize": 2,
+  "svelte.enable-ts-plugin": true,
+  "go.toolsManagement.autoUpdate": true,
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, BreakBeforeBraces: Attach, SpaceBeforeParens: Never, IndentWidth: 2 }",
+  "workbench.layoutControl.enabled": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "gitlens.views.commits.avatars": false,
+  "gitlens.views.commits.showBranchComparison": false,
+  "gitlens.views.commits.pullRequests.showForBranches": false,
+  "gitlens.views.commits.pullRequests.enabled": false,
+  "gitlens.views.showRelativeDateMarkers": false,
+  "gitlens.changes.locations": ["line", "overview", "gutter"],
+  "gitlens.heatmap.locations": ["gutter", "overview", "line"],
+  "gitlens.hovers.currentLine.enabled": false,
+  "editor.accessibilitySupport": "off",
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.inlineSuggest.enabled": true,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false,
+    "yaml": false,
+    "cpp": false
+  },
+  "editor.wordSeparators": "./\\()\"'-:,.;<>~!@#$%^&*|+=[]{}`~?　、。「」【】『』（）！？てにをはがのともへでや",
+
+  "latex-workshop.latex.outDir": "./",
+  "latex-workshop.latex.autoClean.run": "onBuilt",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (lualatex)🧋",
+      "tools": ["lualatexmk"]
+    }
+  ],
+
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatexmk",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-file-line-error",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "%DOC%"
+      ],
+      "env": {}
+    }
+  ],
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.graph.minimap.additionalTypes": [
+    "localBranches",
+    "stashes",
+    "remoteBranches",
+    "tags"
+  ],
+  "gitlens.currentLine.format": "${author, }${date}${' via 'pullRequest}${ • message|50?}",
+  "gitlens.graph.dateFormat": "YYYY/MM/DD HH:mm:ss",
+  "gitlens.defaultDateLocale": null,
+  "gitlens.defaultDateFormat": "YYYY/MM/DD HH:mm",
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "code-runner.runInTerminal": true,
+  "cmake.showOptionsMovedNotification": false,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "markdown.marp.enableHtml": true,
+  "markdown.marp.themes": ["style.css"],
+  "typescript.locale": "en",
+  "typescript.tsserver.log": "off",
+  "editor.minimap.enabled": false,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "zig": "zig run",
+    "cpp": "cd $dir && /opt/homebrew/bin/g++-14 -O2 -std=c++14 $fileName && ./a.out",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runghc",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName",
+    "mojo": "mojo run",
+    "erlang": "escript",
+    "spwn": "spwn build",
+    "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+    "gleam": "gleam run -m $fileNameWithoutExt"
+  },
+  "[typst]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  },
+  "[typst-code]": {
+    "editor.wordSeparators": "`~!@#$%^&*()=+[{]}\\|;:'\",.<>/?"
+  },
+  "git.enableCommitSigning": true
+}
