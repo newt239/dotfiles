@@ -32,9 +32,6 @@ defaults write com.apple.finder ShowTabView -bool true
 # Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Disable live conversion
-defaults write com.apple.inputmethod.Kotoeri JIMPrefLiveConversionKey -bool false
-
 # Display battery level in the menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
