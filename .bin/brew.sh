@@ -5,4 +5,5 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
-brew bundle --global
+BREWFILE_DIR="$(cd "$(dirname "$0")" && pwd)"
+brew bundle --file="$BREWFILE_DIR/Brewfile" --global
