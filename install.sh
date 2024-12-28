@@ -38,6 +38,14 @@ for f in .??*; do
     fi
 done
 
+# ~/.config/git ディレクトリを確認
+mkdir -p ~/.config/git
+
+# Global gitignoreのシンボリックリンクを作成
+GLOBAL_GITIGNORE="${DOTFILES_DIR}/.gitignore"
+ln -snfv "$GLOBAL_GITIGNORE" ~/.config/git/ignore
+echo "Global gitignore linked to: ~/.config/git/ignore -> $GLOBAL_GITIGNORE"
+
 # 処理完了メッセージ
 if [ "$DEBUG" = true ]; then
     echo "DEBUG mode complete. No changes were made."
