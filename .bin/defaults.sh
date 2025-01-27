@@ -57,6 +57,8 @@ defaults write -g com.apple.trackpad.scaling 3
 # Show files with all extensions
 defaults write -g AppleShowAllExtensions -bool true
 
+# Dock に標準で入っている全てのアプリを消す（Finder とごみ箱は消えない）
+defaults write com.apple.dock persistent-apps -array
 
 
 for app in "Dock" \
