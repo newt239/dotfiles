@@ -43,27 +43,30 @@ brew "openssh" # SSH関連ツール
 brew "ios-deploy" # iOSデバイスにアプリをデプロイするツール
 brew "k6" # 負荷テストツール
 brew "typst" # ドキュメント作成用の新しいマークアップ言語
+brew "mas" # Mac App Storeのアプリをコマンドラインからインストールするツール
 
 # アプリケーション（Cask）
 cask "google-chrome"
 cask "firefox"
 cask "microsoft-edge"
+cask "notion"
+cask "discord"
+cask "slack"
+cask "mattermost"
 cask "visual-studio-code"
 cask "warp"
 cask "dbeaver-community"
 cask "wireshark"
 cask "utm"
 cask "docker"
-cask "discord"
 cask "globalprotect"
 cask "spotify"
 cask "zoom"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
-cask "forticlient-vpn"
-cask "background-music" # システムオーディオ管理アプリ
 cask "font-plemol-jp" # Plemol JP フォント
 cask "font-plemol-jp-hs" # Plemol JP ハーフスリムフォント
 cask "font-plemol-jp-nf" # Plemol JP Nerd フォント
 cask "git-credential-manager" # Git Credential Manager
 cask "mactex" # LaTeX環境
+cask "karabiner-elements" # キーバインド変更ツール
