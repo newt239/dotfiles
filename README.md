@@ -1,5 +1,12 @@
 # dotfiles
 
+First, run the following command to clone the repository.
+
+```bash
+xcode-select --install
+git clone
+```
+
 ## installation
 
 ```bash
