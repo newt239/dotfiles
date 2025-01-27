@@ -49,6 +49,7 @@ brew "mas" # Mac App Storeのアプリをコマンドラインからインスト
 cask "google-chrome"
 cask "firefox"
 cask "microsoft-edge"
+cask "arc"
 cask "notion"
 cask "discord"
 cask "slack"
