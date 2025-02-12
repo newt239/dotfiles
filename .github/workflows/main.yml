@@ -13,7 +13,5 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Set execute permissions
-        run: chmod +x ./bin/*.sh
       - name: Setup Dotfiles
         run: make
