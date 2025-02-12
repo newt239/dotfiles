@@ -1,6 +1,5 @@
 # Homebrew taps
 tap "homebrew/bundle" # Bundle管理を行うための公式タップ
-tap "homebrew/cask-fonts" # フォント関連のCaskをインストールするためのタップ
 tap "homebrew/services" # サービス管理用のタップ（起動や停止などを簡単に行える）
 tap "oven-sh/bun" # Bun（JavaScriptランタイム）のための専用タップ
 
@@ -65,9 +64,12 @@ cask "spotify"
 cask "zoom"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
-cask "font-plemol-jp" # Plemol JP フォント
-cask "font-plemol-jp-hs" # Plemol JP ハーフスリムフォント
-cask "font-plemol-jp-nf" # Plemol JP Nerd フォント
 cask "git-credential-manager" # Git Credential Manager
 cask "mactex" # LaTeX環境
 cask "karabiner-elements" # キーバインド変更ツール
+
+# フォント
+cask "font-plemol-jp" # Plemol JP フォント
+cask "font-plemol-jp-hs" # Plemol JP ハーフスリムフォント
+cask "font-plemol-jp-nf" # Plemol JP Nerd フォント
+cask "font-monaspace" # https://github.com/githubnext/monaspace
