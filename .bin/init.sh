@@ -5,8 +5,9 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
-echo "Set zsh"
 chsh -s /bin/zsh
+echo "✅シェルをzshに変更"
 
-echo "Install Homebrew"
+echo "Homebrewをインストール中......"
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "✅Homebrewのインストールが完了"
