@@ -11,9 +11,6 @@ defaults write com.apple.dock autohide -bool true
 echo ".DS_Store ファイルを作成しない"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-echo "Finder のタイトルバーにフルパスを表示"
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
 echo "Finder で隠しファイルを表示"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 

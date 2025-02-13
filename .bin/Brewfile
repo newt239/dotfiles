@@ -1,3 +1,10 @@
+# インストールに時間がかかるため、優先度の高いものからインストール
+
+cask "google-chrome"
+cask "visual-studio-code"
+cask "google-japanese-ime"
+cask "notion"
+
 # Homebrew taps
 tap "homebrew/bundle" # Bundle管理を行うための公式タップ
 tap "homebrew/services" # サービス管理用のタップ（起動や停止などを簡単に行える）
@@ -45,15 +52,12 @@ brew "typst" # ドキュメント作成用の新しいマークアップ言語
 brew "mas" # Mac App Storeのアプリをコマンドラインからインストールするツール
 
 # アプリケーション（Cask）
-cask "google-chrome"
 cask "firefox"
 cask "microsoft-edge"
 cask "arc"
-cask "notion"
 cask "discord"
 cask "slack"
 cask "mattermost"
-cask "visual-studio-code"
 cask "warp"
 cask "dbeaver-community"
 cask "wireshark"
