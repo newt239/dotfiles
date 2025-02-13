@@ -1,5 +1,4 @@
 # インストールに時間がかかるため、優先度の高いものからインストール
-
 cask "google-chrome"
 cask "visual-studio-code"
 cask "google-japanese-ime"
@@ -8,13 +7,11 @@ cask "notion"
 # Homebrew taps
 tap "homebrew/bundle" # Bundle管理を行うための公式タップ
 tap "homebrew/services" # サービス管理用のタップ（起動や停止などを簡単に行える）
-tap "oven-sh/bun" # Bun（JavaScriptランタイム）のための専用タップ
 
 # 開発ツールやユーティリティ
 brew "alp" # アクセスログプロファイラ
 brew "coreutils" # GNUコアユーティリティ
 brew "cloc" # コード行数をカウントするツール
-brew "cmake" # C++プロジェクトのビルドツール
 brew "cpanminus" # Perlのモジュール管理ツール
 brew "curl" # データ転送ツール（HTTP, FTPなど）
 brew "direnv" # 環境変数の自動ロードツール
@@ -22,16 +19,11 @@ brew "gnu-time" # プロセス実行時間を計測するツール
 brew "mise" # バージョン管理ツール
 brew "pinentry" # GPGのパスフレーズ入力用ツール
 brew "wget" # ファイルダウンロードツール
-brew "ffmpeg" # 動画・音声変換ツール
 
 # プログラミング言語と関連ツール
-brew "deno" # JavaScript/TypeScriptランタイム
 brew "perl" # Perlプログラミング言語
-brew "protobuf" # Protocol Buffersのコンパイラ
-brew "rust" # Rustプログラミング言語
-brew "rustup" # Rustのバージョン管理ツール
+brew "protobuf" # Protocol Buffersのコンパイラ\
 brew "zig" # Zigプログラミング言語
-brew "oven-sh/bun/bun" # JavaScriptランタイムのBun
 
 # バージョン管理関連ツール
 brew "git" # Gitバージョン管理システム
