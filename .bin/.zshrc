@@ -35,9 +35,8 @@ setopt no_flow_control
 # Git
 export GPG_TTY=$(tty)
 
-# Volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+# Setup mise
+eval "$(mise activate zsh)"
 
 # Bun
 export PATH="$PATH:/BUN_INSTALL/bin"

@@ -26,10 +26,8 @@ brew "ffmpeg" # 動画・音声変換ツール
 
 # プログラミング言語と関連ツール
 brew "deno" # JavaScript/TypeScriptランタイム
-brew "go" # Go言語
 brew "perl" # Perlプログラミング言語
 brew "protobuf" # Protocol Buffersのコンパイラ
-brew "rbenv" # Rubyバージョン管理ツール
 brew "rust" # Rustプログラミング言語
 brew "rustup" # Rustのバージョン管理ツール
 brew "zig" # Zigプログラミング言語
