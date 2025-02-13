@@ -5,6 +5,8 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
-brew bundle
+sudo brew update
+sudo brew upgrade
+sudo brew bundle
 
 # TODO: RunCatのインストール
