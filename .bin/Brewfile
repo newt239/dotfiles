@@ -3,6 +3,9 @@ cask "google-chrome"
 cask "visual-studio-code"
 cask "google-japanese-ime"
 cask "notion"
+cask "zoom"
+cask "docker"
+cask "raycast"
 
 # Homebrew taps
 tap "homebrew/bundle" # Bundle管理を行うための公式タップ
@@ -52,15 +55,12 @@ cask "warp"
 cask "dbeaver-community"
 cask "wireshark"
 cask "utm"
-cask "docker"
-cask "globalprotect"
 cask "spotify"
-cask "zoom"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
 cask "git-credential-manager" # Git Credential Manager
-cask "mactex" # LaTeX環境
 cask "karabiner-elements" # キーバインド変更ツール
+cask "mactex" # LaTeX環境。インストールに時間がかかる
 
 # フォント
 cask "font-plemol-jp" # Plemol JP フォント
