@@ -8,6 +8,6 @@ fi
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 brew update
 brew upgrade
-brew bundle --file "${SCRIPT_DIR}/Brewfile"
+brew bundle install --file "${SCRIPT_DIR}/Brewfile" --force
 
 # TODO: RunCatのインストール
