@@ -1,17 +1,15 @@
 # インストールに時間がかかるため、優先度の高いものからインストール
 cask "google-chrome"
 cask "visual-studio-code"
+cask "cursor"
 cask "google-japanese-ime"
 brew "mise"
 cask "docker"
 cask "raycast"
+cask "ghostty"
 cask "karabiner-elements"
-cask "git-credential-manager"
 cask "notion"
 cask "zoom"
-
-tap "homebrew/bundle"
-tap "homebrew/services"
 
 # 開発ツールやユーティリティ
 brew "curl"
@@ -46,7 +44,7 @@ cask "firefox"
 cask "microsoft-edge"
 cask "arc"
 cask "mattermost"
-cask "warp"
+cask "obs"
 cask "dbeaver-community"
 cask "wireshark"
 cask "utm"
