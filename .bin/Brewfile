@@ -2,64 +2,56 @@
 cask "google-chrome"
 cask "visual-studio-code"
 cask "google-japanese-ime"
-brew "mise" # バージョン管理ツール
-cask "notion"
-cask "zoom"
+brew "mise"
 cask "docker"
 cask "raycast"
+cask "karabiner-elements"
+cask "git-credential-manager"
+cask "notion"
+cask "zoom"
 
-# Homebrew taps
-tap "homebrew/bundle" # Bundle管理を行うための公式タップ
-tap "homebrew/services" # サービス管理用のタップ（起動や停止などを簡単に行える）
+tap "homebrew/bundle"
+tap "homebrew/services"
 
 # 開発ツールやユーティリティ
-brew "alp" # アクセスログプロファイラ
-brew "coreutils" # GNUコアユーティリティ
-brew "cloc" # コード行数をカウントするツール
-brew "cpanminus" # Perlのモジュール管理ツール
-brew "curl" # データ転送ツール（HTTP, FTPなど）
-brew "direnv" # 環境変数の自動ロードツール
-brew "gnu-time" # プロセス実行時間を計測するツール
-brew "pinentry" # GPGのパスフレーズ入力用ツール
-brew "wget" # ファイルダウンロードツール
+brew "curl"
+brew "direnv"
 
-# プログラミング言語と関連ツール
-brew "perl" # Perlプログラミング言語
-brew "protobuf" # Protocol Buffersのコンパイラ\
-brew "zig" # Zigプログラミング言語
+# プログラミング言語
+brew "typst"
+brew "perl"
+brew "protobuf"
+brew "zig"
 
-# バージョン管理関連ツール
-brew "git" # Gitバージョン管理システム
-brew "git-lfs" # Git Large File Storage
-brew "gh" # GitHub CLI
+# バージョン管理
+brew "git-lfs"
+brew "gh"
 
-# サーバー・データベース関連
-brew "mysql" # MySQLデータベース
-brew "postgresql@17", restart_service: true, link: true # PostgreSQLデータベース
-brew "openssh" # SSH関連ツール
+# サーバー・データベース
+brew "mysql"
+brew "postgresql@17", restart_service: true, link: true
+brew "sqlite"
+brew "openssh"
 
 # その他
 brew "ios-deploy" # iOSデバイスにアプリをデプロイするツール
 brew "k6" # 負荷テストツール
-brew "typst" # ドキュメント作成用の新しいマークアップ言語
 brew "mas" # Mac App Storeのアプリをコマンドラインからインストールするツール
 
-# アプリケーション（Cask）
+# アプリケーション
+cask "discord"
+cask "slack"
+cask "spotify"
 cask "firefox"
 cask "microsoft-edge"
 cask "arc"
-cask "discord"
-cask "slack"
 cask "mattermost"
 cask "warp"
 cask "dbeaver-community"
 cask "wireshark"
 cask "utm"
-cask "spotify"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
-cask "git-credential-manager" # Git Credential Manager
-cask "karabiner-elements" # キーバインド変更ツール
 cask "mactex" # LaTeX環境。インストールに時間がかかる
 
 # フォント
