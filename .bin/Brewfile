@@ -50,7 +50,6 @@ cask "wireshark"
 cask "utm"
 cask "microsoft-office"
 cask "microsoft-remote-desktop"
-cask "mactex" # LaTeX環境。インストールに時間がかかる
 
 # フォント
 cask "font-plemol-jp" # Plemol JP フォント
