@@ -35,6 +35,12 @@ vscode:
 	@.bin/vscode.sh
 	@echo "\033[0;32mDone.\033[0m"
 
+# miseのインストール
+mise:
+	@echo "\033[0;34mRun mise.sh\033[0m"
+	@.bin/mise.sh
+	@echo "\033[0;32mDone.\033[0m"
+
 # 参考: 文字色変更コード
 # 30m: 黒
 # 31m: 赤

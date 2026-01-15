@@ -1,0 +1,9 @@
+[tools]
+node = "latest"
+bun = "latest"
+cmake = "latest"
+deno = "latest"
+ffmpeg = "latest"
+go = "latest"
+pnpm = "latest"
+rust = "latest"
