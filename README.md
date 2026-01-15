@@ -1,10 +1,12 @@
 # dotfiles
 
-## 事前準備
+## セットアップ手順
 
-- git コマンドの実行
-  - terminal で git コマンドを打つと XCode 利用のためのソフトウェアインストールポップアップが表示されるのでインストールしておく
-- Homebrew のインストール
+1. git コマンドを実行する
+
+terminal で git コマンドを打つと XCode 利用のためのソフトウェアインストールポップアップが表示されるのでインストールしておく
+
+2. Homebrew をインストール
 
 ```zsh
 # install
@@ -14,7 +16,7 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
-- このリポジトリを$HOME 配下に clone する
+3. このリポジトリを$HOME 配下に clone する
 
 ```zsh
 cd ~ && git clone https://github.com/newt239/dotfiles
@@ -37,17 +39,16 @@ git update-index --chmod=+x .bin/*.sh
 
 ## 反映されていない設定
 
+以下の設定は `defaults` コマンドでは設定できないため、手動で設定してください。
+
 - システム設定
   - キーボード
     - キーボードの輝度: 0
     - 🌐 キーを押して: 何もしない
     - テキスト入力
       - 入力ソース: Google 日本語入力を選択
-  - トラックパッド
-    - その他のジェスチャ
-      - アプリ Expose: 3 本指で下にスワイプ
 - Raycast の設定インポート
-  - システム > キーボード > キーボードショートカット > Spotlight にて Spotlight 検索を表示を OFF
+  - Raycast の設定ファイルをインポート
 
 ## Git の設定
 

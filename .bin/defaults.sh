@@ -56,6 +56,28 @@ defaults write com.apple.dock persistent-apps -array
 echo "ナチュラルなスクロールを無効にする"
 defaults write -g com.apple.swipescrolldirection -bool false
 
+echo "アプリ Exposé: 3 本指で下にスワイプ"
+defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerVertSwipeGesture -int 2
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+
+echo "Spotlight 検索を表示を OFF"
+defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64 "
+  <dict>
+    <key>enabled</key><false/>
+    <key>value</key><dict>
+      <key>type</key><string>standard</string>
+      <key>parameters</key>
+      <array>
+        <integer>65535</integer>
+        <integer>49</integer>
+        <integer>1048576</integer>
+      </array>
+    </dict>
+  </dict>
+"
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
 
 for app in "Dock" \
 	"Finder" \
