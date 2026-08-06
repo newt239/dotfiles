@@ -1,0 +1,6 @@
+background-image = /Users/newt/Documents/profile/terminal_bg.jpg
+background-image-opacity = 0.1
+background-image-fit = cover
+theme = Ayu
+font-family = PlemolJP35
+working-directory = /Users/newt/projects/

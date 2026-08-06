@@ -49,6 +49,8 @@ git update-index --chmod=+x .bin/*.sh
       - 入力ソース: Google 日本語入力を選択
 - Raycast の設定インポート
   - Raycast の設定ファイルをインポート
+- Ghostty の背景画像
+  - `config/ghostty/config.ghostty` が参照する画像はリポジトリ管理外のため別途配置する
 
 ## mise
 
