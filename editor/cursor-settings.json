@@ -1,0 +1,8 @@
+{
+    "window.commandCenter": true,
+    "workbench.activityBar.orientation": "vertical",
+    "workbench.iconTheme": "material-icon-theme",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "typescript.updateImportsOnFileMove.enabled": "always"
+}
