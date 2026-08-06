@@ -5,6 +5,9 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+source "${SCRIPT_DIR}/keep-sudo.sh"
+
 chsh -s /bin/zsh
 echo "✅シェルをzshに変更"
 

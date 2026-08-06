@@ -5,6 +5,9 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/keep-sudo.sh"
+
 echo "Dockを自動的に隠す"
 defaults write com.apple.dock autohide -bool true
 

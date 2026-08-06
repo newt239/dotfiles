@@ -11,6 +11,8 @@ if [ -x /opt/homebrew/bin/brew ]; then
 fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/keep-sudo.sh"
+
 brew update
 brew upgrade
 brew bundle install --file "${SCRIPT_DIR}/Brewfile" --force
