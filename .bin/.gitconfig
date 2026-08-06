@@ -2,6 +2,8 @@
 	email = ysti2019.win2020.st@gmail.com
 	name = newt
 	signingkey = F997C11AB42E6408
+[core]
+	excludesfile = ~/.gitignore
 [commit]
 	gpgsign = true
 [init]
