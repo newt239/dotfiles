@@ -78,6 +78,9 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
 "
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
+echo "ディスプレイがオフになるまでの時間を延ばす"
+sudo pmset -b displaysleep 20 && sudo pmset -c displaysleep 30
+
 
 for app in "Dock" \
 	"Finder" \
