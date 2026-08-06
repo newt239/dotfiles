@@ -47,8 +47,20 @@ git update-index --chmod=+x .bin/*.sh
     - 🌐 キーを押して: 何もしない
     - テキスト入力
       - 入力ソース: Google 日本語入力を選択
+      - 入力ソース「ABC」の削除
+        - 初期状態では「−」ボタンが無効で削除できない
+        - 「日本語 - かな入力」の「英字」にチェックを入れると「−」ボタンが有効になり削除できる
+        - ref: https://www.karakaram.com/deleting-alphanumeric-input-sources-on-macos-bigsur/
 - Raycast の設定インポート
   - Raycast の設定ファイルをインポート
+- Ghostty の背景画像
+  - `config/ghostty/config.ghostty` が参照する画像はリポジトリ管理外のため別途配置する
+
+## mise
+
+グローバルのツール設定は `.bin/.mise.toml` で管理している。
+
+`mise use -g` は `~/.config/mise/config.toml` を作成して設定が二重管理になるため使用しない。
 
 ## Git の設定
 

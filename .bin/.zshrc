@@ -33,6 +33,8 @@ setopt no_flow_control
 
 ###############################  INSTALLATION  ############################
 
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Git
 export GPG_TTY=$(tty)
 
@@ -41,5 +43,26 @@ eval "$(mise activate zsh)"
 
 # Bun
 export PATH="$PATH:/BUN_INSTALL/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
-eval "$(rbenv init - zsh)"
+eval "$(direnv hook zsh)"
+
+# Android Studio
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
+
+###############################  PROMPT  ############################
+
+autoload -Uz vcs_info
+
+precmd() {
+  vcs_info
+}
+
+# Gitブランチ名を緑で表示
+zstyle ':vcs_info:git:*' formats ' %F{green}[%b]%f'
+
+setopt prompt_subst
+
+# ユーザー名@ホスト名を白文字 + 濃いグレー背景
+PROMPT='%K{238}%F{white} %n@%m %f%k %F{39}%1~%f${vcs_info_msg_0_} %F{196}%#%f '

@@ -5,6 +5,9 @@ if [ "$(uname)" != "Darwin" ] ; then
 	exit 1
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/keep-sudo.sh"
+
 echo "Dockを自動的に隠す"
 defaults write com.apple.dock autohide -bool true
 
@@ -77,6 +80,9 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
   </dict>
 "
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
+echo "ディスプレイがオフになるまでの時間を延ばす"
+sudo pmset -b displaysleep 20 && sudo pmset -c displaysleep 30
 
 
 for app in "Dock" \
