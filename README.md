@@ -52,6 +52,15 @@ git update-index --chmod=+x .bin/*.sh
 - Ghostty の背景画像
   - `config/ghostty/config.ghostty` が参照する画像はリポジトリ管理外のため別途配置する
 
+## 管理していない設定
+
+- `~/.codex/config.toml`
+  - Codex が利用したプロジェクトの絶対パスを自動で追記するため
+- `~/.ssh/config`
+  - 接続先の情報が公開リポジトリに載るため
+- `~/.config/gh/hosts.yml`
+  - 認証トークンを含むため
+
 ## mise
 
 グローバルのツール設定は `.bin/.mise.toml` で管理している。
