@@ -14,8 +14,10 @@ if [ ! -f /etc/pam.d/sudo_local ] && [ -f /etc/pam.d/sudo_local.template ]; then
 	echo "✅sudoのTouch IDを有効化"
 fi
 
-chsh -s /bin/zsh
-echo "✅シェルをzshに変更"
+if [ "$SHELL" != "/bin/zsh" ]; then
+	chsh -s /bin/zsh
+	echo "✅シェルをzshに変更"
+fi
 
 echo "Xcode Command Line Toolsをインストール中......"
 xcode-select --install
