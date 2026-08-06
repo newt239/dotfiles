@@ -21,3 +21,4 @@ link_file "config/karabiner/karabiner.json" "${HOME}/.config/karabiner/karabiner
 link_file "config/direnv/direnvrc" "${HOME}/.config/direnv/direnvrc"
 link_file "config/gh/config.yml" "${HOME}/.config/gh/config.yml"
 link_file "config/ghostty/config.ghostty" "${HOME}/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+link_file "config/claude/settings.json" "${HOME}/.claude/settings.json"
