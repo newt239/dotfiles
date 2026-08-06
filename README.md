@@ -50,6 +50,12 @@ git update-index --chmod=+x .bin/*.sh
 - Raycast の設定インポート
   - Raycast の設定ファイルをインポート
 
+## mise
+
+グローバルのツール設定は `.bin/.mise.toml` で管理している。
+
+`mise use -g` は `~/.config/mise/config.toml` を作成して設定が二重管理になるため使用しない。
+
 ## Git の設定
 
 ### GPG キーの設定
