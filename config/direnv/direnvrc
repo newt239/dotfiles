@@ -1,0 +1,4 @@
+export DEVENV_BIN="$HOME/.local/state/nix/profiles/profile/bin/devenv"
+if [ -x "$DEVENV_BIN" ]; then
+eval "$($DEVENV_BIN direnvrc)"
+fi
