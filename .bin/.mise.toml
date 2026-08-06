@@ -1,5 +1,4 @@
 [tools]
-node = "latest"
 pnpm = "latest"
 deno = "latest"
 bun = "latest"
@@ -9,3 +8,5 @@ go = "latest"
 python = "latest"
 uv = "latest"
 rust = "latest"
+node = "26"
+"npm:@openai/codex" = "latest"

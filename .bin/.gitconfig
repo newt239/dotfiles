@@ -1,6 +1,7 @@
 [user]
 	email = ysti2019.win2020.st@gmail.com
-	name = newt239
+	name = newt
+	signingkey = F997C11AB42E6408
 [commit]
 	gpgsign = true
 [init]
@@ -12,3 +13,12 @@
 	required = true
 [gpg]
 	program = gpg
+	format = openpgp
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
