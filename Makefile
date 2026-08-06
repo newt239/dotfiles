@@ -32,7 +32,7 @@ brew:
 # VSCodeのセットアップ
 vscode:
 	@echo "\033[0;34mRun vscode.sh\033[0m"
-	@.bin/vscode.sh
+	@editor/vscode.sh
 	@echo "\033[0;32mDone.\033[0m"
 
 # miseのインストール
