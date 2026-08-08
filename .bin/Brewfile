@@ -1,7 +1,6 @@
 # インストールに時間がかかるため、優先度の高いものからインストール
 cask "google-chrome"
 cask "visual-studio-code"
-cask "cursor"
 cask "google-japanese-ime"
 brew "mise"
 cask "docker-desktop"
