@@ -13,6 +13,19 @@
   "attribution": {
     "sessionUrl": false
   },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/protect-sensitive-files.sh"
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(mkdir:*)",
