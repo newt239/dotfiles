@@ -27,9 +27,9 @@ gh pr ready
 ```bash
 # 1. ブランチ作成とコミット
 git checkout main && git pull
-git checkout -b feat-user-profile
+git checkout -b feat/user-profile
 git add . && git commit -m "feat: ユーザー プロフィール機能の実装"
-git push -u origin feat-user-profile
+git push -u origin feat/user-profile
 
 # 2. PR 作成
 「以下の手順で PR を作成してください：
@@ -37,10 +37,10 @@ git push -u origin feat-user-profile
 2. .github/PULL_REQUEST_TEMPLATE.md を使用して説明文を作成
 3. 変更内容から適切なラベルを最大 3 個選択
 4. Draft PR として作成 (HTML コメント保持)」
-5. PR名はブランチ名を参考に、例えばfeatureブランチならば、「feat(*): ユーザー プロフィール機能の実装」のように作成してください。*には適切なサービス、コンポーネントまたはディレクトリ名を入れてください。また、PR名は日本語で作成してください。
+5. PR名はブランチ名を参考に、例えばfeatureブランチならば、「feat: ユーザー プロフィール機能の実装」のように作成してください。また、PR名は日本語で作成してください。
 
-format `{区分}({package name}): {内容}`
-例: feat(app:tms): ユーザー プロフィール機能の実装
+format `{区分}: {内容}`
+例: feat: ユーザー プロフィール機能の実装
 
 # 3. CI 確認後に Ready 化
 「CI が通ったら PR を Ready for Review に変更してください」
@@ -51,10 +51,10 @@ format `{区分}({package name}): {内容}`
 ### 1. ブランチ作成
 
 ```bash
-# ガイドラインに従った命名規則: {type}-{subject}
+# ガイドラインに従った命名規則: {type}/{subject}
 git checkout main
 git pull
-git checkout -b feat-user-authentication
+git checkout -b feat/user-authentication
 
 # ブランチ確認 (現在のブランチ名を表示)
 git branch --show-current
@@ -74,7 +74,7 @@ git commit -m "feat: ユーザー認証 API の実装"
 
 ```bash
 # 初回 Push(upstream 設定)
-git push -u origin feat-user-authentication
+git push -u origin feat/user-authentication
 
 # 2 回目以降
 git push
@@ -137,7 +137,7 @@ mcp_github_create_pull_request({
   owner: "organization",
   repo: "repository",
   base: "main",
-  head: "feat-user-authentication",
+  head: "feat/user-authentication",
   title: "feat: ユーザー認証の実装",
   body: prBodyContent, // HTML コメントを含む完全な内容
   draft: true,
@@ -181,12 +181,12 @@ mcp_github_create_pull_request({
 ### ブランチ命名規則
 
 ```text
-{type}-{subject}
+{type}/{subject}
 
 例:
-- feat-user-profile
-- fix-login-error
-- refactor-api-client
+- feat/user-profile
+- fix/login-error
+- refactor/api-client
 ```
 
 ### コミットメッセージ
