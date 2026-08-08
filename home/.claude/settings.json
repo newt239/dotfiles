@@ -13,6 +13,10 @@
   "attribution": {
     "sessionUrl": false
   },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
   "hooks": {
     "PreToolUse": [
       {
