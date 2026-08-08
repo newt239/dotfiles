@@ -31,6 +31,20 @@ cd ~ && git clone https://github.com/newt239/dotfiles
 make
 ```
 
+## ディレクトリ構成
+
+| ディレクトリ | 内容 |
+| ------------ | ---------------------------------------- |
+| `home/`      | `$HOME` と同じ構成で配置した設定ファイル |
+| `.bin/`      | セットアップスクリプトと Brewfile        |
+| `config/`    | `$HOME` の外に置く設定ファイル           |
+| `editor/`    | VSCode の設定                            |
+| `raycast/`   | Raycast の設定                           |
+
+`home/` 配下は `make link` で全ファイルがそのまま `$HOME` にリンクされるため、設定ファイルを追加するときは `home/` に置くだけでよい。
+
+`~/Library/Application Support` 配下のように `$HOME` の外へ置くものは `.bin/link.sh` の `link_file` に追加する。認証情報が同居するディレクトリがあるため、ディレクトリ単位の一括リンクは行わない。
+
 ## 権限がない場合
 
 ```bash
@@ -58,7 +72,7 @@ git update-index --chmod=+x .bin/*.sh
 
 ## mise
 
-グローバルのツール設定は `.bin/.mise.toml` で管理している。
+グローバルのツール設定は `home/.mise.toml` で管理している。
 
 `mise use -g` は `~/.config/mise/config.toml` を作成して設定が二重管理になるため使用しない。
 
