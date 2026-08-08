@@ -27,9 +27,9 @@ gh pr ready
 ```bash
 # 1. ブランチ作成とコミット
 git checkout main && git pull
-git checkout -b feat-user-profile
+git checkout -b feat/user-profile
 git add . && git commit -m "feat: ユーザー プロフィール機能の実装"
-git push -u origin feat-user-profile
+git push -u origin feat/user-profile
 
 # 2. PR 作成
 「以下の手順で PR を作成してください：
@@ -51,10 +51,10 @@ format `{区分}: {内容}`
 ### 1. ブランチ作成
 
 ```bash
-# ガイドラインに従った命名規則: {type}-{subject}
+# ガイドラインに従った命名規則: {type}/{subject}
 git checkout main
 git pull
-git checkout -b feat-user-authentication
+git checkout -b feat/user-authentication
 
 # ブランチ確認 (現在のブランチ名を表示)
 git branch --show-current
@@ -74,7 +74,7 @@ git commit -m "feat: ユーザー認証 API の実装"
 
 ```bash
 # 初回 Push(upstream 設定)
-git push -u origin feat-user-authentication
+git push -u origin feat/user-authentication
 
 # 2 回目以降
 git push
@@ -137,7 +137,7 @@ mcp_github_create_pull_request({
   owner: "organization",
   repo: "repository",
   base: "main",
-  head: "feat-user-authentication",
+  head: "feat/user-authentication",
   title: "feat: ユーザー認証の実装",
   body: prBodyContent, // HTML コメントを含む完全な内容
   draft: true,
@@ -181,12 +181,12 @@ mcp_github_create_pull_request({
 ### ブランチ命名規則
 
 ```text
-{type}-{subject}
+{type}/{subject}
 
 例:
-- feat-user-profile
-- fix-login-error
-- refactor-api-client
+- feat/user-profile
+- fix/login-error
+- refactor/api-client
 ```
 
 ### コミットメッセージ
