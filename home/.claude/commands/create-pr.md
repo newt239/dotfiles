@@ -37,10 +37,10 @@ git push -u origin feat-user-profile
 2. .github/PULL_REQUEST_TEMPLATE.md を使用して説明文を作成
 3. 変更内容から適切なラベルを最大 3 個選択
 4. Draft PR として作成 (HTML コメント保持)」
-5. PR名はブランチ名を参考に、例えばfeatureブランチならば、「feat(*): ユーザー プロフィール機能の実装」のように作成してください。*には適切なサービス、コンポーネントまたはディレクトリ名を入れてください。また、PR名は日本語で作成してください。
+5. PR名はブランチ名を参考に、例えばfeatureブランチならば、「feat: ユーザー プロフィール機能の実装」のように作成してください。また、PR名は日本語で作成してください。
 
-format `{区分}({package name}): {内容}`
-例: feat(app:tms): ユーザー プロフィール機能の実装
+format `{区分}: {内容}`
+例: feat: ユーザー プロフィール機能の実装
 
 # 3. CI 確認後に Ready 化
 「CI が通ったら PR を Ready for Review に変更してください」
