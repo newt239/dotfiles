@@ -36,8 +36,6 @@ setopt no_flow_control
 # Git
 export GPG_TTY=$(tty)
 
-# Bun
-export PATH="$PATH:/BUN_INSTALL/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(direnv hook zsh)"
