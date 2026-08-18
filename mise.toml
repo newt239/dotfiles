@@ -4,11 +4,13 @@
 actionlint = "1.7.12"
 shellcheck = "0.11.0"
 taplo = "0.10.0"
+pinact = "4.1.0"
 
 [tasks.lint]
 description = "ワークフロー・シェルスクリプト・TOML を検査する"
 run = [
   "actionlint",
+  "pinact run --check",
   "shellcheck -x -P SCRIPTDIR .bin/*.sh editor/*.sh",
   "taplo lint mise.toml home/.mise.toml",
 ]
