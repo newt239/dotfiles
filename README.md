@@ -11,7 +11,7 @@
 cd ~ && git clone https://github.com/newt239/dotfiles
 ```
 
-3. `make` を実行する
+3. 業務用なら `make work`、私用なら `make personal` を実行する
 
 `home/.mise.toml` が絶対パスで参照しているため、置き場所は `~/dotfiles` 固定。
 
@@ -19,29 +19,32 @@ cd ~ && git clone https://github.com/newt239/dotfiles
 
 | コマンド | 内容 |
 | --------------- | ---------------------------------------------- |
-| `make`          | 前提条件を整えてから宣言を反映する             |
-| `make personal` | 私用マシン向けの上乗せまで反映する             |
+| `make work`     | 業務用マシンをセットアップする                 |
+| `make personal` | 私用マシンをセットアップする                   |
 | `make status`   | 宣言との差分と VSCode 拡張の差分を確認する     |
 | `make lint`     | ワークフロー・シェルスクリプト・TOML を検査する |
 | `make raycast`  | Raycast の設定取り込み画面を開く               |
 
-セットアップ後は `~/.mise.toml` がリンクされるため、どこからでも `mise bootstrap` で再収束できる。
+`make status` は既定で業務用を見る。私用は `make status ENV=personal`。
+
+セットアップ後は `~/.mise.toml` がリンクされるため、どこからでも `mise bootstrap -E work` で再収束できる。
 
 `~/Library/Application Support/Code/User/settings.json` と `~/.ssh/config` が実ファイルとして存在するとリンクが競合する。初回のみ次を使う。
 
 ```bash
-mise bootstrap -C home --yes --force-dotfiles
+mise bootstrap -C home -E work --yes --force-dotfiles
 ```
 
 ## ディレクトリ構成
 
 | ディレクトリ | 内容 |
-| ------------ | ----------------------------------------- |
-| `home/`      | `$HOME` と同じ構成で配置した設定ファイル  |
-| `.bin/`      | 宣言化できない処理のスクリプトと Brewfile |
-| `config/`    | `$HOME` の外に置く設定ファイル            |
-| `editor/`    | VSCode の設定                             |
-| `raycast/`   | Raycast の設定                            |
+| ------------ | ---------------------------------------- |
+| `home/`      | `$HOME` と同じ構成で配置した設定ファイル |
+| `packages/`  | Homebrew で入れる cask のリスト          |
+| `.bin/`      | 宣言化できない処理のスクリプト           |
+| `config/`    | `$HOME` の外に置く設定ファイル           |
+| `editor/`    | VSCode の設定                            |
+| `raycast/`   | Raycast の設定                           |
 
 `home/` 配下は `symlink-each` でそのまま `$HOME` にリンクされる。設定ファイルを追加するときは `home/` に置くだけでよい。
 
@@ -49,40 +52,40 @@ mise bootstrap -C home --yes --force-dotfiles
 
 リポジトリ直下の `mise.toml` はこのリポジトリ自体の開発用。`$HOME` に配る設定は `home/.mise.toml` に置く。
 
-## mise
+## 業務用と私用
 
-`home/.mise.toml` が唯一の宣言ファイルで、`[tools]` と bootstrap の全セクションをまとめている。
+アプリのリストは 2 つの構成で完全に独立している。片方のファイルを見れば、そのマシンに入るアプリが全部分かる。
+
+| | 業務用 | 私用 |
+| --- | --- | --- |
+| コマンド | `make work` | `make personal` |
+| cask | `packages/Brewfile.work` | `packages/Brewfile.personal` |
+| App Store アプリ | `home/.mise.work.toml` | `home/.mise.personal.toml` |
+| コミット署名 | GPG | 1Password の SSH キー |
+
+`home/.mise.toml` は両方に共通する部分で、`[tools]`・dotfiles・macOS 設定・formula を持つ。アプリは置かない。
+
+## mise
 
 `mise use -g` は `~/.config/mise/config.toml` を作成して設定が二重管理になるため使用しない。
 
 ### 宣言化していないもの
 
 | 内容 | 置き場所 | 呼び出し元 |
-| ---------------------------------------------- | ------------------------------- | ------------------- |
-| cask のインストール                            | `.bin/Brewfile` / `.bin/brew.sh` | `pre-packages` フック |
-| Dock のアプリ消去・Spotlight ホットキー・`pmset` | `.bin/defaults.sh`              | `post-defaults` フック |
-| VSCode 拡張のインストール                      | `editor/vscode.sh`              | `bootstrap` タスク  |
+| ---------------------------------------------- | ------------------------------ | ---------------------- |
+| cask のインストール                            | `packages/` と `.bin/brew.sh`  | `pre-packages` フック  |
+| Dock のアプリ消去・Spotlight ホットキー・`pmset` | `.bin/defaults.sh`             | `post-defaults` フック |
+| VSCode 拡張のインストール                      | `editor/vscode.sh`             | `bootstrap` タスク     |
 
 cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns this cask` で失敗するため、Homebrew に残している。formula と App Store アプリは `[bootstrap.packages]` で管理している。
 
-### 業務用と私用の切り替え
-
-`home/.mise.toml` は業務でも使う最小構成。私用マシンで足すものは `home/.mise.personal.toml` に置き、`make personal` で上乗せする。
-
-| | 業務用 | 私用 |
-| --- | --- | --- |
-| コマンド | `make` | `make personal` |
-| 宣言 | `home/.mise.toml` | 左記 + `home/.mise.personal.toml` |
-| cask | `.bin/Brewfile` | 左記 + `.bin/Brewfile.personal` |
-| コミット署名 | GPG | 1Password の SSH キー |
-
-`[bootstrap.hooks]` は上書きではなく追記されるため、私用向けの cask は `.bin/brew-personal.sh` を別のフックとして足している。
+`[bootstrap.hooks]` は上書きではなく追記される。構成ごとに違う処理をさせたい場合は、同じフックに別のコマンドを足す形になる。
 
 ### マシン固有の上書き
 
 `home/.gitconfig` は末尾で `~/.gitconfig.local` を include している。存在しなければ無視されるため、署名方式のようにマシンごとに変えたい設定はそちらに置く。
 
-`make personal` はここに `config/git/gitconfig.personal` をリンクし、コミット署名を 1Password の SSH キーに切り替える。`home/.gitconfig` 単体では 1Password に依存しない GPG 署名になる。
+`make personal` はここに `config/git/gitconfig.personal` をリンクし、コミット署名を 1Password の SSH キーに切り替える。`make work` では作られないため GPG 署名のままになる。
 
 1Password 署名を使うには、SSH 公開鍵を GitHub に Signing Key として登録する必要がある。
 

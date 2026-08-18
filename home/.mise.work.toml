@@ -1,0 +1,8 @@
+# 業務用マシンのアプリ。`mise bootstrap -E work` で共通設定と一緒に適用される
+
+[bootstrap.packages]
+"mas:497799835" = "latest"   # Xcode
+"mas:1429033973" = "latest"  # RunCat
+
+[bootstrap.hooks]
+pre-packages = "~/dotfiles/.bin/brew.sh work"
