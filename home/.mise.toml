@@ -16,6 +16,7 @@ node = "26.5.0"
 "~" = { source = "~/dotfiles/home", mode = "symlink-each", exclude = [".DS_Store"] }
 "~/Library/Application Support/com.mitchellh.ghostty/config.ghostty" = "~/dotfiles/config/ghostty/config.ghostty"
 "~/Library/Application Support/Code/User/settings.json" = "~/dotfiles/editor/settings.json"
+"~/.gnupg/gpg-agent.conf" = "~/dotfiles/config/gnupg/gpg-agent.conf"
 
 [bootstrap.user]
 login_shell = "/bin/zsh"
@@ -26,6 +27,8 @@ login_shell = "/bin/zsh"
 # 開発ツールやユーティリティ
 "brew:curl" = "latest"
 "brew:direnv" = "latest"
+"brew:gnupg" = "latest"
+"brew:pinentry-mac" = "latest"
 "brew:fzf" = "latest"
 "brew:zsh-autosuggestions" = "latest"
 
@@ -96,6 +99,8 @@ TrackpadThreeFingerVertSwipeGesture = 2
 AppleFnUsageType = 0
 
 [bootstrap.hooks]
+# mise が作る ~/.gnupg は 755 で gpg が警告を出す
+post-dotfiles = "chmod 700 ~/.gnupg"
 post-packages = "brew services restart postgresql@17"
 post-defaults = "~/dotfiles/.bin/defaults.sh"
 
