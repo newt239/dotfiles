@@ -105,6 +105,14 @@ TrackpadThreeFingerVertSwipeGesture = 2
 [bootstrap.macos.defaults."com.apple.HIToolbox"]
 AppleFnUsageType = 0
 
+# 宣言とマシンの状態がずれていたら毎週月曜に通知する
+[bootstrap.macos.launchd.agents.dotfiles-drift]
+program = "/bin/bash"
+args = ["-c", "exec \"$HOME/dotfiles/.bin/check-drift.sh\""]
+start_calendar_interval = { weekday = 1, hour = 9, minute = 0 }
+stdout_path = "/tmp/dotfiles-drift.log"
+stderr_path = "/tmp/dotfiles-drift.log"
+
 [bootstrap.hooks]
 pre-packages = "~/dotfiles/.bin/brew.sh"
 post-packages = "brew services restart postgresql@17"
