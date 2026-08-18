@@ -85,10 +85,6 @@ cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns t
 
 `home/.gitconfig` は末尾で `~/.gitconfig.local` を include している。存在しなければ無視されるため、署名方式のようにマシンごとに変えたい設定はそちらに置く。
 
-`make personal` はここに `config/git/gitconfig.personal` をリンクし、コミット署名を 1Password の SSH キーに切り替える。`make work` では作られないため GPG 署名のままになる。
-
-1Password 署名を使うには、SSH 公開鍵を GitHub に Signing Key として登録する必要がある。
-
 ## 手動で設定するもの
 
 - システム設定 > キーボード
@@ -102,10 +98,47 @@ cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns t
 
 `🌐 キーを押して: 何もしない` は宣言済み。反映には再起動が必要。
 
-## GPG キーの設定
+## コミット署名の準備
 
-- https://qiita.com/dodonki1223/items/2bb296111e561c93035e#github%E3%81%A7ssh%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E6%BA%96%E5%82%99
-- https://zenn.dev/kou_pg_0131/scraps/ae44c42e9291dc
+`commit.gpgsign = true` を常に有効にしているため、鍵の準備ができていないマシンではコミットが失敗する。構成ごとに手順が違う。
+
+### 業務用
+
+GPG 鍵で署名する。`gnupg` と `pinentry-mac` は `make work` が入れる。`~/.gnupg/gpg-agent.conf` も配置され、パスフレーズの入力に pinentry-mac を使う。
+
+1. 鍵を用意する。既存の鍵を移すならエクスポートしたものを `gpg --import` する
+
+```bash
+gpg --full-generate-key
+```
+
+2. 鍵 ID を調べ、`home/.gitconfig` の `user.signingkey` を書き換える
+
+```bash
+gpg --list-secret-keys --keyid-format=long
+```
+
+3. 公開鍵を GitHub の Settings > SSH and GPG keys > New GPG key に登録する
+
+```bash
+gpg --armor --export <鍵ID>
+```
+
+- ref: https://zenn.dev/kou_pg_0131/scraps/ae44c42e9291dc
+
+### 私用
+
+1Password の SSH キーで署名する。GPG 鍵は不要。
+
+1. 1Password の設定で SSH エージェントを有効にする。`~/.ssh/config` は `make personal` が配置する
+2. 署名に使う SSH キーを 1Password に用意する
+3. 公開鍵を GitHub の Settings > SSH and GPG keys > New SSH key に登録する。**Key type を Signing Key にする**。認証用に登録済みの鍵でも、署名用は別枠で登録がいる
+4. その鍵に合わせて `config/git/gitconfig.personal` の `user.signingkey` と `config/git/allowed_signers` を書き換える
+5. `make personal` を実行する
+
+`make personal` が `~/.gitconfig.local` を作り、署名方式が SSH に切り替わる。3 を飛ばすと署名は付くが GitHub 上で Verified にならない。
+
+- ref: https://qiita.com/dodonki1223/items/2bb296111e561c93035e#github%E3%81%A7ssh%E6%8E%A5%E7%B6%9A%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AE%E6%BA%96%E5%82%99
 
 ## 権限がない場合
 
