@@ -25,7 +25,7 @@ cd ~ && git clone https://github.com/newt239/dotfiles
 | `make lint`     | ワークフロー・シェルスクリプト・TOML を検査する |
 | `make raycast`  | Raycast の設定取り込み画面を開く               |
 
-セットアップ後は `~/.mise.toml` がリンクされるため、どこからでも `mise bootstrap` で再収束できる。差分は毎週月曜に LaunchAgent が通知する。
+セットアップ後は `~/.mise.toml` がリンクされるため、どこからでも `mise bootstrap` で再収束できる。
 
 `~/Library/Application Support/Code/User/settings.json` と `~/.ssh/config` が実ファイルとして存在するとリンクが競合する。初回のみ次を使う。
 
