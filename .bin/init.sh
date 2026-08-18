@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+# mise bootstrap を動かすための前提条件だけを整える
+
 if [ "$(uname)" != "Darwin" ] ; then
 	echo "Not macOS!"
 	exit 1
@@ -14,15 +16,22 @@ if [ ! -f /etc/pam.d/sudo_local ] && [ -f /etc/pam.d/sudo_local.template ]; then
 	echo "✅sudoのTouch IDを有効化"
 fi
 
-if [ "$SHELL" != "/bin/zsh" ]; then
-	chsh -s /bin/zsh
-	echo "✅シェルをzshに変更"
+if ! xcode-select -p > /dev/null 2>&1; then
+	echo "Xcode Command Line Toolsをインストール中......"
+	xcode-select --install
+	echo "✅Xcode Command Line Toolsのインストールが完了"
 fi
 
-echo "Xcode Command Line Toolsをインストール中......"
-xcode-select --install
-echo "✅Xcode Command Line Toolsのインストールが完了"
+if [ ! -x /opt/homebrew/bin/brew ]; then
+	echo "Homebrewをインストール中......"
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo "✅Homebrewのインストールが完了"
+fi
 
-echo "Homebrewをインストール中......"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo "✅Homebrewのインストールが完了"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+if ! command -v mise > /dev/null 2>&1; then
+	echo "miseをインストール中......"
+	brew install mise
+	echo "✅miseのインストールが完了"
+fi
