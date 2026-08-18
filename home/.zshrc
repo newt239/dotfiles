@@ -40,6 +40,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 eval "$(direnv hook zsh)"
 
+if command -v fzf > /dev/null 2>&1; then
+  source <(fzf --zsh)
+fi
+
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools

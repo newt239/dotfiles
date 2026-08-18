@@ -26,6 +26,8 @@ login_shell = "/bin/zsh"
 # 開発ツールやユーティリティ
 "brew:curl" = "latest"
 "brew:direnv" = "latest"
+"brew:fzf" = "latest"
+"brew:zsh-autosuggestions" = "latest"
 
 # プログラミング言語
 "brew:typst" = "latest"
