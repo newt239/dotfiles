@@ -1,5 +1,5 @@
 ---
-description: Git 変更分析に基づく自動 PR 作成。変更内容を分析し、適切な説明文とラベルで Draft PR を作成します。
+description: Git 変更分析に基づく自動 PR 作成。変更内容を分析し、適切な説明文とラベルで PR を作成します。
 ---
 
 # Create PR
@@ -11,15 +11,11 @@ Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワー�
 ```bash
 # 変更分析による自動 PR 作成
 git add . && git commit -m "feat: ユーザー認証機能の実装"
-「変更内容を分析して適切な説明文とラベルで Draft PR を作成してください」
+「変更内容を分析して適切な説明文とラベルで PR を作成してください」
 
-# 既存テンプレート保持での更新
-cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
+# PR テンプレートが存在する場合の保持更新
+[ -f .github/PULL_REQUEST_TEMPLATE.md ] && cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 「テンプレート構造を完全に保持して変更内容を補完してください」
-
-# 段階的品質向上
-gh pr ready
-「品質確認完了後、Ready for Review に変更してください」
 ```
 
 ## 基本例
@@ -34,16 +30,13 @@ git push -u origin feat/user-profile
 # 2. PR 作成
 「以下の手順で PR を作成してください：
 1. git diff --cached で変更内容を確認
-2. .github/PULL_REQUEST_TEMPLATE.md を使用して説明文を作成
+2. PR テンプレートが存在する場合はそれを使用して説明文を作成
 3. 変更内容から適切なラベルを最大 3 個選択
-4. Draft PR として作成 (HTML コメント保持)」
+4. 通常の PR として作成 (HTML コメント保持)」
 5. PR名はブランチ名を参考に、例えばfeatureブランチならば、「feat: ユーザー プロフィール機能の実装」のように作成してください。また、PR名は日本語で作成してください。
 
 format `{区分}: {内容}`
 例: feat: ユーザー プロフィール機能の実装
-
-# 3. CI 確認後に Ready 化
-「CI が通ったら PR を Ready for Review に変更してください」
 ```
 
 ## 実行手順
@@ -80,7 +73,7 @@ git push -u origin feat/user-authentication
 git push
 ```
 
-### 4. 自動分析による Draft PR 作成
+### 4. 自動分析による PR 作成
 
 **Step 1: 変更内容の分析**
 
@@ -97,10 +90,14 @@ git diff --cached | head -1000
 ```bash
 # テンプレート処理の優先順位
 # 1. 既存 PR 説明 (完全保持)
-# 2. .github/PULL_REQUEST_TEMPLATE.md
-# 3. デフォルトテンプレート
+# 2. PR テンプレート (存在する場合のみ)
+# 3. 変更内容から生成した説明文
 
-cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
+# テンプレートの存在確認 (最初に見つかったものを使用)
+ls .github/PULL_REQUEST_TEMPLATE.md .github/pull_request_template.md PULL_REQUEST_TEMPLATE.md 2>/dev/null
+
+# 存在する場合のみコピーして利用
+[ -f .github/PULL_REQUEST_TEMPLATE.md ] && cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 # HTML コメント・区切り線を保持したまま空セクションのみ補完
 ```
 
@@ -121,9 +118,9 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 
 ```bash
 # PR 作成
-「以下の情報で Draft PR を作成してください：
+「以下の情報で PR を作成してください：
 - タイトル: コミットメッセージから自動生成
-- 説明文: .github/PULL_REQUEST_TEMPLATE.md を使用して適切に記入
+- 説明文: PR テンプレートが存在する場合はそれを使用し、無い場合は変更内容から生成
 - ラベル: 変更内容から自動選択 (最大 3 個)
 - ベースブランチ: main
 - HTML コメントは完全に保持」
@@ -140,7 +137,6 @@ mcp_github_create_pull_request({
   head: "feat/user-authentication",
   title: "feat: ユーザー認証の実装",
   body: prBodyContent, // HTML コメントを含む完全な内容
-  draft: true,
   maintainer_can_modify: true,
 });
 ```
@@ -172,11 +168,10 @@ mcp_github_create_pull_request({
 
 ### 基本姿勢
 
-1. **必ず Draft で開始**: すべての PR は Draft 状態で作成
-2. **段階的品質向上**: Phase 1(基本実装)→ Phase 2(テスト追加)→ Phase 3(ドキュメント更新)
-3. **適切なラベル**: 最大 3 種類のラベルを必ず付与
-4. **テンプレート使用**: `.github/PULL_REQUEST_TEMPLATE.md` を必ず使用
-5. **日本語スペース**: 日本語と半角英数字間に必ず半角スペース
+1. **通常の PR で作成**: Draft ではなく Ready for Review の状態で作成
+2. **適切なラベル**: 最大 3 種類のラベルを必ず付与
+3. **テンプレート使用**: PR テンプレートが存在する場合のみ使用し、無い場合は変更内容から説明文を生成
+4. **日本語スペース**: 日本語と半角英数字間に必ず半角スペース
 
 ### ブランチ命名規則
 
@@ -205,8 +200,16 @@ mcp_github_create_pull_request({
 ### 処理優先順位
 
 1. **既存 PR 説明**: 既に記述されている内容を**完全に踏襲**
-2. **プロジェクトテンプレート**: `.github/PULL_REQUEST_TEMPLATE.md` 構造を維持
-3. **デフォルトテンプレート**: 上記が存在しない場合
+2. **プロジェクトテンプレート**: PR テンプレートが存在する場合はその構造を維持
+3. **変更内容から生成**: テンプレートが存在しない場合は変更内容を要約した説明文を作成
+
+### テンプレートの探索先
+
+以下を順に確認し、最初に見つかったものを使用する。いずれも存在しない場合はテンプレートを使わない。
+
+- `.github/PULL_REQUEST_TEMPLATE.md`
+- `.github/pull_request_template.md`
+- リポジトリ ルートの `PULL_REQUEST_TEMPLATE.md`
 
 ### 既存内容保持ルール
 
@@ -249,12 +252,11 @@ git push
 - **最大 3 ラベル**: 自動選択の上限
 - **既存内容優先**: 手動で記述された内容は一切変更しない
 
-### 段階的品質向上
+### 品質確認
 
-- **Draft 必須**: すべての PR は Draft で開始
+- **Draft を使わない**: PR は最初から Ready for Review の状態で作成
 - **CI 確認**: `gh pr checks` で状態確認
-- **Ready 移行**: 品質確認完了後に `gh pr ready`
-- **テンプレート完全遵守**: プロジェクト固有の構造を維持
+- **テンプレート遵守**: 存在する場合はプロジェクト固有の構造を維持
 
 ## ユーザーへの報告内容
 
@@ -275,10 +277,9 @@ PR を作成しました。
 - PR URL: {URL}
 - タイトル: {タイトル}
 - ラベル: {ラベル}
-- 状態: Draft
 
 ## 次のステップ
 
 1. CI の完了を確認
-2. `gh pr ready` で Ready for Review に変更
+2. レビュアーをアサイン
 ```

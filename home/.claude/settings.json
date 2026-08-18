@@ -1,22 +1,35 @@
 {
-  "model": "opus[1m]",
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "github@claude-plugins-official": true
-  },
-  "language": "日本語",
-  "skipDangerousModePermissionPrompt": true,
-  "skipWorkflowUsageWarning": true,
-  "theme": "dark-daltonized",
-  "agentPushNotifEnabled": true,
   "attribution": {
     "sessionUrl": false
   },
-  "statusLine": {
-    "type": "command",
-    "command": "~/.claude/statusline.sh"
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run:*)",
+      "Bash(grep:*)",
+      "Bash(gh pr create:*)"
+    ],
+    "deny": [
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)"
+    ],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(git push:*)"
+    ]
   },
+  "model": "opus[1m]",
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "deepwiki",
+    "playwright",
+    "context7"
+  ],
   "hooks": {
     "PreToolUse": [
       {
@@ -30,24 +43,18 @@
       }
     ]
   },
-  "permissions": {
-    "allow": [
-      "Bash(mkdir:*)",
-      "Bash(pnpm install:*)",
-      "Bash(pnpm run:*)",
-      "Bash(grep:*)",
-      "Bash(gh pr create:*)"
-    ],
-    "deny": ["Bash(git reset:*)", "Bash(git rebase:*)"],
-    "ask": [
-      "Bash(rm:*)",
-      "Bash(git checkout:*)",
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git merge:*)",
-      "Bash(git push:*)"
-    ]
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": ["deepwiki", "playwright", "context7"]
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "figma@claude-plugins-official": true,
+    "github@claude-plugins-official": true
+  },
+  "language": "日本語",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark-daltonized",
+  "agentPushNotifEnabled": true
 }
