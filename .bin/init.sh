@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # mise bootstrap を動かすための前提条件だけを整える
 

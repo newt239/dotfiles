@@ -21,6 +21,11 @@ bootstrap:
 # 宣言との差分を確認する
 status:
 	@mise bootstrap status -C home
+	@mise run check-extensions
+
+# ワークフロー・シェルスクリプト・TOML を検査する
+lint:
+	@mise run lint
 
 # Raycast の設定取り込み画面を開く
 raycast:
