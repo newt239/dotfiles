@@ -33,13 +33,8 @@ setopt no_flow_control
 
 ###############################  INSTALLATION  ############################
 
-export PATH="/opt/homebrew/bin:$PATH"
-
 # Git
 export GPG_TTY=$(tty)
-
-# Setup mise
-eval "$(mise activate zsh)"
 
 # Bun
 export PATH="$PATH:/BUN_INSTALL/bin"
