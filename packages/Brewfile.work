@@ -7,7 +7,6 @@ cask "visual-studio-code"
 cask "ghostty"
 cask "docker-desktop"
 cask "dbeaver-community"
-cask "wireshark-app"
 cask "utm"
 
 # ブラウザ
@@ -17,8 +16,6 @@ cask "arc"
 
 # コミュニケーション
 cask "slack"
-cask "microsoft-teams"
-cask "mattermost"
 cask "zoom"
 
 # ドキュメント・デザイン
@@ -26,7 +23,6 @@ cask "notion"
 cask "figma"
 cask "linear"
 cask "microsoft-office"
-cask "microsoft-remote-desktop"
 
 # ユーティリティ
 cask "1password"
