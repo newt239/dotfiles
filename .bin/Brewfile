@@ -1,8 +1,10 @@
+# cask は mise が Homebrew 管理下のものを引き取れないため Homebrew に残す
+# formula は home/.mise.toml の [bootstrap.packages] で管理する
+
 # インストールに時間がかかるため、優先度の高いものからインストール
 cask "google-chrome"
 cask "visual-studio-code"
 cask "google-japanese-ime"
-brew "mise"
 cask "docker-desktop"
 cask "raycast"
 cask "1password"
@@ -10,31 +12,6 @@ cask "ghostty"
 cask "karabiner-elements"
 cask "notion"
 cask "zoom"
-
-# 開発ツールやユーティリティ
-brew "curl"
-brew "direnv"
-
-# プログラミング言語
-brew "typst"
-brew "perl"
-brew "protobuf"
-brew "zig"
-
-# バージョン管理
-brew "git-lfs"
-brew "gh"
-
-# サーバー・データベース
-brew "mysql"
-brew "postgresql@17", restart_service: true, link: true
-brew "sqlite"
-brew "openssh"
-
-# その他
-brew "ios-deploy" # iOSデバイスにアプリをデプロイするツール
-brew "k6" # 負荷テストツール
-brew "mas" # Mac App Storeのアプリをコマンドラインからインストールするツール
 
 # アプリケーション
 cask "discord"

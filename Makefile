@@ -1,55 +1,27 @@
-# すべてのスクリプトを実行する
-all: init link defaults brew
+# 前提条件を整えてから宣言をマシンに反映する
+all: init bootstrap
 
 # すべての.shファイルに対して実行権限を付与
 chmod:
 	find . -type f -name "*.sh" -exec chmod +x {} \;
 
-# 初期設定
+# Xcode CLT / Homebrew / mise を用意する
 init:
 	@echo "\033[0;34mRun init.sh\033[0m"
 	@.bin/init.sh
-	@echo "\033[0;34mDone.\033[0m"
-
-# シンボリックリンクを作成
-link:
-	@echo "\033[0;34mRun link.sh\033[0m"
-	@.bin/link.sh
 	@echo "\033[0;32mDone.\033[0m"
 
-# MacOSのデフォルト設定を変更
-defaults:
-	@echo "\033[0;34mRun defaults.sh\033[0m"
-	@.bin/defaults.sh
+# home/.mise.toml の宣言をマシンに反映する
+bootstrap:
+	@echo "\033[0;34mRun mise bootstrap\033[0m"
+	@mise trust home/.mise.toml
+	@mise bootstrap -C home --yes
 	@echo "\033[0;32mDone.\033[0m"
 
-# MacOSのアプリケーションをインストール
-brew:
-	@echo "\033[0;34mRun brew.sh\033[0m"
-	@.bin/brew.sh
-	@echo "\033[0;32mDone.\033[0m"
+# 宣言との差分を確認する
+status:
+	@mise bootstrap status -C home
 
-# VSCodeのセットアップ
-vscode:
-	@echo "\033[0;34mRun vscode.sh\033[0m"
-	@editor/vscode.sh
-	@echo "\033[0;32mDone.\033[0m"
-
-# miseのインストール
-mise:
-	@echo "\033[0;34mRun mise.sh\033[0m"
-	@.bin/mise.sh
-	@echo "\033[0;32mDone.\033[0m"
-
-# 参考: 文字色変更コード
-# 30m: 黒
-# 31m: 赤
-# 32m: 緑
-# 33m: 黄
-# 34m: 青
-# 35m: マゼンタ
-# 36m: シアン
-# 37m: 白
-# \033[0;32m: 緑色（通常の色設定）
-# \033[0;34m: 青色（通常の色設定）
-# \033[0m: リセット（色設定を元に戻す）
+# Raycast の設定取り込み画面を開く
+raycast:
+	@mise run -C home raycast

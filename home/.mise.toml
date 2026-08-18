@@ -10,3 +10,97 @@ uv = "0.10.10"
 rust = "1.94.0"
 node = "26.5.0"
 "npm:@openai/codex" = "0.130.0"
+
+# シンボリックリンクの位置基準で解決されるため source は絶対パスで書く
+[dotfiles]
+"~" = { source = "~/dotfiles/home", mode = "symlink-each", exclude = [".DS_Store"] }
+"~/Library/Application Support/com.mitchellh.ghostty/config.ghostty" = "~/dotfiles/config/ghostty/config.ghostty"
+"~/Library/Application Support/Code/User/settings.json" = "~/dotfiles/editor/settings.json"
+
+[bootstrap.user]
+login_shell = "/bin/zsh"
+
+[bootstrap.packages]
+# cask は .bin/Brewfile で管理する。mise は Homebrew 管理下の cask を引き取れない
+
+# 開発ツールやユーティリティ
+"brew:curl" = "latest"
+"brew:direnv" = "latest"
+
+# プログラミング言語
+"brew:typst" = "latest"
+"brew:perl" = "latest"
+"brew:protobuf" = "latest"
+"brew:zig" = "latest"
+
+# バージョン管理
+"brew:git-lfs" = "latest"
+"brew:gh" = "latest"
+
+# サーバー・データベース
+"brew:mysql" = "latest"
+"brew:postgresql@17" = "latest"
+"brew:sqlite" = "latest"
+"brew:openssh" = "latest"
+
+# その他
+"brew:ios-deploy" = "latest" # iOSデバイスにアプリをデプロイするツール
+"brew:k6" = "latest"         # 負荷テストツール
+"brew:mas" = "latest"        # Mac App Storeのアプリをコマンドラインからインストールするツール
+
+[bootstrap.macos.dock]
+autohide = true
+
+[bootstrap.macos.finder]
+show_all_files = true
+show_pathbar = true
+show_status_bar = true
+
+[bootstrap.macos.keyboard]
+initial_key_repeat = 10
+key_repeat = 1
+fn_state = true
+
+[bootstrap.macos.trackpad]
+tap_to_click = true
+
+[bootstrap.macos.defaults.NSGlobalDomain]
+AppleShowAllExtensions = true
+"com.apple.mouse.scaling" = 1.5
+"com.apple.trackpad.scaling" = 3
+"com.apple.swipescrolldirection" = false
+
+[bootstrap.macos.defaults."com.apple.desktopservices"]
+DSDontWriteNetworkStores = true
+
+[bootstrap.macos.defaults."com.apple.finder"]
+ShowTabView = true
+
+[bootstrap.macos.defaults."com.apple.menuextra.clock"]
+DateFormat = "d/MMM(EEE) HH:mm:ss"
+
+# アプリ Exposé: 3 本指で下にスワイプ
+[bootstrap.macos.defaults."com.apple.dock"]
+showAppExposeGestureEnabled = true
+
+[bootstrap.macos.defaults."com.apple.driver.AppleBluetoothMultitouch.trackpad"]
+TrackpadThreeFingerVertSwipeGesture = 2
+
+[bootstrap.macos.defaults."com.apple.AppleMultitouchTrackpad"]
+TrackpadThreeFingerVertSwipeGesture = 2
+
+# 🌐 キーを押しても何もしない。反映には再起動が必要
+[bootstrap.macos.defaults."com.apple.HIToolbox"]
+AppleFnUsageType = 0
+
+[bootstrap.hooks]
+pre-packages = "~/dotfiles/.bin/brew.sh"
+post-packages = "brew services restart postgresql@17"
+post-defaults = "~/dotfiles/.bin/defaults.sh"
+
+[tasks.bootstrap]
+run = "~/dotfiles/editor/vscode.sh"
+
+# rayconfig はパスフレーズ暗号化のため取り込み画面を開くまでを自動化する
+[tasks.raycast]
+run = 'open "raycast://extensions/raycast/raycast/import-settings-data"'
