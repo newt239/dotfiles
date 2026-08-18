@@ -8,6 +8,20 @@
 	gpgsign = true
 [init]
 	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[rebase]
+	autoStash = true
+[diff]
+	algorithm = histogram
+[rerere]
+	enabled = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -16,13 +30,14 @@
 [gpg]
 	program = gpg
 	format = openpgp
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper =
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+# 署名方式などマシン固有の上書き。存在しなければ無視される
+[include]
+	path = ~/.gitconfig.local
