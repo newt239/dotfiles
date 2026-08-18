@@ -15,3 +15,5 @@
 - macOS の設定・パッケージ・フックはすべて `home/.mise.toml` に宣言する。宣言できないものだけ `.bin/*.sh` に置き、bootstrap のフックから呼ぶ
 - リポジトリ直下の `mise.toml` はこのリポジトリ自体の開発用。`$HOME` に配る設定を書かない
 - マシンごとに変えたい git 設定は `~/.gitconfig.local` に置く。`home/.gitconfig` が末尾で include している
+- `home/.mise.toml` は業務でも使う最小構成にする。私用マシンにだけ入れるものは `home/.mise.personal.toml` と `.bin/Brewfile.personal` に置く
+- `[bootstrap.hooks]` は env をまたいで追記される。上書きはできない

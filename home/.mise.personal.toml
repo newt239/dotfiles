@@ -1,0 +1,16 @@
+# 私用マシン向けの上乗せ。`mise bootstrap -E personal` で base と一緒に適用される
+
+[dotfiles]
+"~/.gitconfig.local" = "~/dotfiles/config/git/gitconfig.personal"
+
+[bootstrap.packages]
+"mas:539883307" = "latest"   # LINE
+"mas:409183694" = "latest"   # Keynote
+"mas:409203825" = "latest"   # Numbers
+"mas:409201541" = "latest"   # Pages
+"mas:682658836" = "latest"   # GarageBand
+"mas:408981434" = "latest"   # iMovie
+
+# フックは base と置き換わらず追記される
+[bootstrap.hooks]
+pre-packages = "~/dotfiles/.bin/brew-personal.sh"

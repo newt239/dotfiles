@@ -18,11 +18,12 @@ cd ~ && git clone https://github.com/newt239/dotfiles
 ## コマンド
 
 | コマンド | 内容 |
-| -------------- | ---------------------------------------------- |
-| `make`         | 前提条件を整えてから宣言を反映する             |
-| `make status`  | 宣言との差分と VSCode 拡張の差分を確認する     |
-| `make lint`    | ワークフロー・シェルスクリプト・TOML を検査する |
-| `make raycast` | Raycast の設定取り込み画面を開く               |
+| --------------- | ---------------------------------------------- |
+| `make`          | 前提条件を整えてから宣言を反映する             |
+| `make personal` | 私用マシン向けの上乗せまで反映する             |
+| `make status`   | 宣言との差分と VSCode 拡張の差分を確認する     |
+| `make lint`     | ワークフロー・シェルスクリプト・TOML を検査する |
+| `make raycast`  | Raycast の設定取り込み画面を開く               |
 
 セットアップ後は `~/.mise.toml` がリンクされるため、どこからでも `mise bootstrap` で再収束できる。差分は毎週月曜に LaunchAgent が通知する。
 
@@ -64,11 +65,26 @@ mise bootstrap -C home --yes --force-dotfiles
 
 cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns this cask` で失敗するため、Homebrew に残している。formula と App Store アプリは `[bootstrap.packages]` で管理している。
 
+### 業務用と私用の切り替え
+
+`home/.mise.toml` は業務でも使う最小構成。私用マシンで足すものは `home/.mise.personal.toml` に置き、`make personal` で上乗せする。
+
+| | 業務用 | 私用 |
+| --- | --- | --- |
+| コマンド | `make` | `make personal` |
+| 宣言 | `home/.mise.toml` | 左記 + `home/.mise.personal.toml` |
+| cask | `.bin/Brewfile` | 左記 + `.bin/Brewfile.personal` |
+| コミット署名 | GPG | 1Password の SSH キー |
+
+`[bootstrap.hooks]` は上書きではなく追記されるため、私用向けの cask は `.bin/brew-personal.sh` を別のフックとして足している。
+
 ### マシン固有の上書き
 
 `home/.gitconfig` は末尾で `~/.gitconfig.local` を include している。存在しなければ無視されるため、署名方式のようにマシンごとに変えたい設定はそちらに置く。
 
-`home/.gitconfig` 自体は 1Password に依存しない GPG 署名を既定にしている。
+`make personal` はここに `config/git/gitconfig.personal` をリンクし、コミット署名を 1Password の SSH キーに切り替える。`home/.gitconfig` 単体では 1Password に依存しない GPG 署名になる。
+
+1Password 署名を使うには、SSH 公開鍵を GitHub に Signing Key として登録する必要がある。
 
 ## 手動で設定するもの
 

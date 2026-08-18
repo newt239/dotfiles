@@ -1,0 +1,5 @@
+# 私用マシンにだけ入れる cask
+
+cask "discord"
+cask "spotify"
+cask "obs"

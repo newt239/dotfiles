@@ -52,13 +52,7 @@ login_shell = "/bin/zsh"
 
 # App Store。値は ADAM ID でバージョン指定はできない
 "mas:497799835" = "latest"   # Xcode
-"mas:539883307" = "latest"   # LINE
 "mas:1429033973" = "latest"  # RunCat
-"mas:409183694" = "latest"   # Keynote
-"mas:409203825" = "latest"   # Numbers
-"mas:409201541" = "latest"   # Pages
-"mas:682658836" = "latest"   # GarageBand
-"mas:408981434" = "latest"   # iMovie
 
 [bootstrap.macos.dock]
 autohide = true
