@@ -33,7 +33,11 @@ jobs:
       - name: Validate config
         run: |
           mise trust ~/dotfiles/home/.mise.toml
+          mise trust ~/dotfiles/home/.mise.work.toml
+          mise trust ~/dotfiles/home/.mise.personal.toml
           mise bootstrap plan -C ~/dotfiles/home
+          mise bootstrap dotfiles status -C ~/dotfiles/home -E work
+          mise bootstrap dotfiles status -C ~/dotfiles/home -E personal
       - name: Apply dotfiles
         run: mise bootstrap -C ~/dotfiles/home --yes --only dotfiles --force-dotfiles
       - name: Check convergence

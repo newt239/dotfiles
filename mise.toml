@@ -12,7 +12,7 @@ run = [
   "actionlint",
   "pinact run --check",
   "shellcheck -x -P SCRIPTDIR .bin/*.sh editor/*.sh",
-  "taplo lint mise.toml home/.mise.toml",
+  "taplo lint mise.toml home/.mise.toml home/.mise.work.toml home/.mise.personal.toml",
 ]
 
 [tasks.check-extensions]

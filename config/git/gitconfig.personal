@@ -1,0 +1,8 @@
+# 1Password の SSH キーでコミットに署名する。~/.gitconfig.local として配置される
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID+I0I2wFiAHNgeEmAfTz+cnhxR2vwd9TmJZpTTpi3dd
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = ~/dotfiles/config/git/allowed_signers

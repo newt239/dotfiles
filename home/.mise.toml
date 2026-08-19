@@ -16,16 +16,19 @@ node = "26.5.0"
 "~" = { source = "~/dotfiles/home", mode = "symlink-each", exclude = [".DS_Store"] }
 "~/Library/Application Support/com.mitchellh.ghostty/config.ghostty" = "~/dotfiles/config/ghostty/config.ghostty"
 "~/Library/Application Support/Code/User/settings.json" = "~/dotfiles/editor/settings.json"
+"~/.gnupg/gpg-agent.conf" = "~/dotfiles/config/gnupg/gpg-agent.conf"
 
 [bootstrap.user]
 login_shell = "/bin/zsh"
 
 [bootstrap.packages]
-# cask は .bin/Brewfile で管理する。mise は Homebrew 管理下の cask を引き取れない
+# アプリは home/.mise.work.toml と home/.mise.personal.toml で管理する
 
 # 開発ツールやユーティリティ
 "brew:curl" = "latest"
 "brew:direnv" = "latest"
+"brew:gnupg" = "latest"
+"brew:pinentry-mac" = "latest"
 "brew:fzf" = "latest"
 "brew:zsh-autosuggestions" = "latest"
 
@@ -49,16 +52,6 @@ login_shell = "/bin/zsh"
 "brew:ios-deploy" = "latest" # iOSデバイスにアプリをデプロイするツール
 "brew:k6" = "latest"         # 負荷テストツール
 "brew:mas" = "latest"        # Mac App Storeのアプリをコマンドラインからインストールするツール
-
-# App Store。値は ADAM ID でバージョン指定はできない
-"mas:497799835" = "latest"   # Xcode
-"mas:539883307" = "latest"   # LINE
-"mas:1429033973" = "latest"  # RunCat
-"mas:409183694" = "latest"   # Keynote
-"mas:409203825" = "latest"   # Numbers
-"mas:409201541" = "latest"   # Pages
-"mas:682658836" = "latest"   # GarageBand
-"mas:408981434" = "latest"   # iMovie
 
 [bootstrap.macos.dock]
 autohide = true
@@ -106,7 +99,8 @@ TrackpadThreeFingerVertSwipeGesture = 2
 AppleFnUsageType = 0
 
 [bootstrap.hooks]
-pre-packages = "~/dotfiles/.bin/brew.sh"
+# mise が作る ~/.gnupg は 755 で gpg が警告を出す
+post-dotfiles = "chmod 700 ~/.gnupg"
 post-packages = "brew services restart postgresql@17"
 post-defaults = "~/dotfiles/.bin/defaults.sh"
 

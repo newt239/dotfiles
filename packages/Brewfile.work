@@ -1,0 +1,37 @@
+# 業務用マシンに入れる cask。personal とは独立した完全なリスト
+# formula と App Store アプリは home/.mise.work.toml で管理する
+
+# 開発
+cask "google-chrome"
+cask "visual-studio-code"
+cask "ghostty"
+cask "docker-desktop"
+cask "dbeaver-community"
+cask "utm"
+
+# ブラウザ
+cask "firefox"
+cask "microsoft-edge"
+cask "arc"
+
+# コミュニケーション
+cask "slack"
+cask "zoom"
+
+# ドキュメント・デザイン
+cask "notion"
+cask "figma"
+cask "linear"
+cask "microsoft-office"
+
+# ユーティリティ
+cask "1password"
+cask "raycast"
+cask "karabiner-elements"
+cask "google-japanese-ime"
+
+# フォント
+cask "font-plemol-jp" # Plemol JP フォント
+cask "font-plemol-jp-hs" # Plemol JP ハーフスリムフォント
+cask "font-plemol-jp-nf" # Plemol JP Nerd フォント
+cask "font-monaspace" # https://github.com/githubnext/monaspace
