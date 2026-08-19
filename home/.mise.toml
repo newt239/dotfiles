@@ -26,6 +26,8 @@ login_shell = "/bin/zsh"
 # 開発ツールやユーティリティ
 "brew:curl" = "latest"
 "brew:direnv" = "latest"
+"brew:fzf" = "latest"
+"brew:zsh-autosuggestions" = "latest"
 
 # プログラミング言語
 "brew:typst" = "latest"
@@ -47,6 +49,16 @@ login_shell = "/bin/zsh"
 "brew:ios-deploy" = "latest" # iOSデバイスにアプリをデプロイするツール
 "brew:k6" = "latest"         # 負荷テストツール
 "brew:mas" = "latest"        # Mac App Storeのアプリをコマンドラインからインストールするツール
+
+# App Store。値は ADAM ID でバージョン指定はできない
+"mas:497799835" = "latest"   # Xcode
+"mas:539883307" = "latest"   # LINE
+"mas:1429033973" = "latest"  # RunCat
+"mas:409183694" = "latest"   # Keynote
+"mas:409203825" = "latest"   # Numbers
+"mas:409201541" = "latest"   # Pages
+"mas:682658836" = "latest"   # GarageBand
+"mas:408981434" = "latest"   # iMovie
 
 [bootstrap.macos.dock]
 autohide = true
