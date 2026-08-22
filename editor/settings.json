@@ -8,6 +8,7 @@
   "workbench.iconTheme": "material-icon-theme",
   "explorer.confirmDelete": false,
   "extensions.ignoreRecommendations": true,
+  "extensions.autoUpdateDelay": 72,
   "git.autofetch": true,
   "git.blame.editorDecoration.enabled": true,
   "security.workspace.trust.untrustedFiles": "open",
