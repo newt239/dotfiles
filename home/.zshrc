@@ -38,6 +38,10 @@ export GPG_TTY=$(tty)
 
 export PATH="$HOME/.local/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+export PATH="$PNPM_HOME/bin:$PATH"
+
 eval "$(direnv hook zsh)"
 
 if command -v fzf > /dev/null 2>&1; then
