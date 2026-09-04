@@ -76,8 +76,11 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 | cask のインストール                            | `packages/` と `.bin/brew.sh`  | `pre-packages` フック  |
 | Dock のアプリ消去・Spotlight ホットキー・`pmset` | `.bin/defaults.sh`             | `post-defaults` フック |
 | VSCode 拡張のインストール                      | `editor/vscode.sh`             | `bootstrap` タスク     |
+| pnpm のインストール                            | `.bin/pnpm.sh`                 | `final` フック         |
 
 cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns this cask` で失敗するため、Homebrew に残している。formula と App Store アプリは `[bootstrap.packages]` で管理している。
+
+pnpm は `[tools]` で固定しない。プロジェクトの `packageManager` を読んで自分でバージョンを切り替えるため、mise で別のバージョンに固定すると衝突する。グローバルにはメジャーだけを入れる。
 
 `[bootstrap.hooks]` は上書きではなく追記される。構成ごとに違う処理をさせたい場合は、同じフックに別のコマンドを足す形になる。
 
