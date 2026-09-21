@@ -9,6 +9,7 @@
 "brew-cask:google-chrome" = "latest"
 "brew-cask:visual-studio-code" = "latest"
 "brew-cask:ghostty" = "latest"
+"brew-cask:cmux" = "latest"
 "brew-cask:docker-desktop" = "latest"
 "brew-cask:dbeaver-community" = "latest"
 "brew-cask:utm" = "latest"
