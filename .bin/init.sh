@@ -30,7 +30,12 @@ fi
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-if ! command -v mise > /dev/null 2>&1; then
+# cask の宣言が新しい mise を要求するため毎回更新する
+if brew list mise > /dev/null 2>&1; then
+	echo "miseを更新中......"
+	brew upgrade mise
+	echo "✅miseの更新が完了"
+elif ! command -v mise > /dev/null 2>&1; then
 	echo "miseをインストール中......"
 	brew install mise
 	echo "✅miseのインストールが完了"

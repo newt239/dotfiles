@@ -1,8 +1,42 @@
 # 業務用マシンのアプリ。`mise bootstrap -E work` で共通設定と一緒に適用される
+# personal とは独立した完全なリスト
 
 [bootstrap.packages]
-"mas:497799835" = "latest"   # Xcode
-"mas:1429033973" = "latest"  # RunCat
+# 開発
+"brew-cask:google-chrome" = "latest"
+"brew-cask:visual-studio-code" = "latest"
+"brew-cask:ghostty" = "latest"
+"brew-cask:docker-desktop" = "latest"
+"brew-cask:dbeaver-community" = "latest"
+"brew-cask:utm" = "latest"
 
-[bootstrap.hooks]
-pre-packages = "~/dotfiles/.bin/brew.sh work"
+# ブラウザ
+"brew-cask:firefox" = "latest"
+"brew-cask:microsoft-edge" = "latest"
+"brew-cask:arc" = "latest"
+
+# コミュニケーション
+"brew-cask:slack" = "latest"
+"brew-cask:zoom" = "latest"
+
+# ドキュメント・デザイン
+"brew-cask:notion" = "latest"
+"brew-cask:figma" = "latest"
+"brew-cask:linear" = "latest"
+"brew-cask:microsoft-office" = "latest"
+
+# ユーティリティ
+"brew-cask:1password" = "latest"
+"brew-cask:raycast" = "latest"
+"brew-cask:karabiner-elements" = "latest"
+"brew-cask:google-japanese-ime" = "latest"
+
+# フォント
+"brew-cask:font-plemol-jp" = "latest"    # Plemol JP フォント
+"brew-cask:font-plemol-jp-hs" = "latest" # Plemol JP ハーフスリムフォント
+"brew-cask:font-plemol-jp-nf" = "latest" # Plemol JP Nerd フォント
+"brew-cask:font-monaspace" = "latest"    # https://github.com/githubnext/monaspace
+
+# App Store
+"mas:497799835" = "latest"  # Xcode
+"mas:1429033973" = "latest" # RunCat

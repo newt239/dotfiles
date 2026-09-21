@@ -1,3 +1,6 @@
+# cask の pkg installer choices 対応が入った最初のバージョン
+min_version = "2026.9.12"
+
 [tools]
 deno = "2.7.5"
 bun = "1.3.14"

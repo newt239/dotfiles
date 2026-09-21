@@ -7,6 +7,7 @@ help:
 	@echo "make work      業務用マシンをセットアップする"
 	@echo "make personal  私用マシンをセットアップする"
 	@echo "make status    宣言との差分を確認する。ENV=personal で切り替え"
+	@echo "make upgrade   宣言したパッケージを更新する。ENV=personal で切り替え"
 	@echo "make lint      ワークフロー・シェルスクリプト・TOML を検査する"
 	@echo "make raycast   Raycast の設定取り込み画面を開く"
 	@echo "make chmod     .sh に実行権限を付与する"
@@ -39,6 +40,10 @@ bootstrap: init
 status:
 	@mise bootstrap status -C home -E $(ENV)
 	@mise run check-extensions
+
+# 宣言したパッケージを更新する
+upgrade:
+	@mise bootstrap packages upgrade -C home -E $(ENV)
 
 # ワークフロー・シェルスクリプト・TOML を検査する
 lint:
