@@ -57,6 +57,7 @@ login_shell = "/bin/zsh"
 
 [bootstrap.macos.dock]
 autohide = true
+apps = [] # Dock に標準で入っているアプリを全て消す。Finder とごみ箱は残る
 
 [bootstrap.macos.finder]
 show_all_files = true
@@ -110,6 +111,13 @@ AppleEnabledInputSources = [
 AppleSelectedInputSources = [
   { "Bundle ID" = "com.google.inputmethod.Japanese", "Input Mode" = "com.apple.inputmethod.Japanese", InputSourceKind = "Input Mode" },
 ]
+
+# Spotlight 検索を表示を OFF。parameters を残すため enabled だけ差し替える
+[[bootstrap.macos.defaults_entries]]
+domain = "com.apple.symbolichotkeys"
+key = "AppleSymbolicHotKeys"
+path = ["64", "enabled"]
+value = false
 
 [bootstrap.hooks]
 # mise が作る ~/.gnupg は 755 で gpg が警告を出す
