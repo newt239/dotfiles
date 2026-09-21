@@ -4,6 +4,8 @@
   },
   "permissions": {
     "allow": [
+      "Edit",
+      "Write",
       "Bash(mkdir:*)",
       "Bash(pnpm install:*)",
       "Bash(pnpm run:*)",
