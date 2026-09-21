@@ -100,6 +100,17 @@ TrackpadThreeFingerVertSwipeGesture = 2
 [bootstrap.macos.defaults."com.apple.HIToolbox"]
 AppleFnUsageType = 0
 
+# 配列は全置換のため ABC など宣言外の入力ソースは消える。反映には再ログインが必要
+AppleEnabledInputSources = [
+  { "Bundle ID" = "com.apple.CharacterPaletteIM", InputSourceKind = "Non Keyboard Input Method" },
+  { "Bundle ID" = "com.apple.50onPaletteIM", InputSourceKind = "Non Keyboard Input Method" },
+  { "Bundle ID" = "com.google.inputmethod.Japanese", "Input Mode" = "com.apple.inputmethod.Japanese", InputSourceKind = "Input Mode" },
+  { "Bundle ID" = "com.google.inputmethod.Japanese", "Input Mode" = "com.apple.inputmethod.Roman", InputSourceKind = "Input Mode" },
+]
+AppleSelectedInputSources = [
+  { "Bundle ID" = "com.google.inputmethod.Japanese", "Input Mode" = "com.apple.inputmethod.Japanese", InputSourceKind = "Input Mode" },
+]
+
 [bootstrap.hooks]
 # mise が作る ~/.gnupg は 755 で gpg が警告を出す
 post-dotfiles = "chmod 700 ~/.gnupg"
