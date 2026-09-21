@@ -57,7 +57,14 @@ login_shell = "/bin/zsh"
 
 [bootstrap.macos.dock]
 autohide = true
-apps = [] # Dock に標準で入っているアプリを全て消す。Finder とごみ箱は残る
+# 宣言外のアプリは Dock から消える。Finder とごみ箱は persistent-apps の対象外で常に残る
+apps = [
+  "/Applications/Google Chrome.app",
+  "/Applications/Visual Studio Code.app",
+  "/Applications/cmux.app",
+  "/Applications/Notion.app",
+  "/Applications/Slack.app",
+]
 
 [bootstrap.macos.finder]
 show_all_files = true
