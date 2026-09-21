@@ -72,7 +72,7 @@ cask と App Store アプリはどちらも各構成の `[bootstrap.packages]` �
 
 | 内容 | 置き場所 | 呼び出し元 |
 | ---------------------------------------------- | ------------------------------ | ---------------------- |
-| Dock のアプリ消去・Spotlight ホットキー・`pmset` | `.bin/defaults.sh`             | `post-defaults` フック |
+| ディスプレイスリープの時間と設定の反映          | `.bin/defaults.sh`             | `post-defaults` フック |
 | VSCode 拡張のインストール                      | `editor/vscode.sh`             | `bootstrap` タスク     |
 | pnpm のインストール                            | `.bin/pnpm.sh`                 | `final` フック         |
 
@@ -90,16 +90,16 @@ pnpm は `[tools]` で固定しない。プロジェクトの `packageManager` �
 
 ## 手動で設定するもの
 
-- システム設定 > キーボード
-  - キーボードの輝度: 0
-  - テキスト入力 > 入力ソース
-    - Google 日本語入力を選択する
-    - 「ABC」を削除する。初期状態では「−」ボタンが無効なので、「日本語 - かな入力」の「英字」にチェックを入れて有効にする
-    - ref: https://www.karakaram.com/deleting-alphanumeric-input-sources-on-macos-bigsur/
-- Raycast の設定インポート
-  - `make raycast` で開く画面から `raycast/rayconfig` を選び、パスフレーズを入力する
+宣言できないものだけが残っている。
 
-`🌐 キーを押して: 何もしない` は宣言済み。反映には再起動が必要。
+- キーボードの輝度を 0 にする
+  - システム設定 > キーボード > キーボードの輝度 のスライダーを左端まで下げる
+  - `defaults` に書き場所が無い。`com.apple.CoreBrightness` も `com.apple.keyboard` もドメインとして存在せず、`com.apple.BezelServices` に輝度のキーは無い
+- Raycast の設定をインポートする
+  - `make raycast` で開く画面から `raycast/rayconfig` を選び、パスフレーズを入力する
+  - `rayconfig` はパスフレーズで暗号化されており、Raycast に CLI も無いため自動化できない
+
+入力ソースと `🌐 キーを押して: 何もしない` は宣言済み。反映には再ログインが必要。入力ソースの配列は全置換のため、手で足したものは `make work` で消える。
 
 ## コミット署名の準備
 
