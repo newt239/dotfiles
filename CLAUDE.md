@@ -19,6 +19,6 @@
 ## 業務用と私用
 
 - アプリのリストは work と personal で完全に独立させる。共通リストを作らない
-- cask は `packages/Brewfile.work` と `packages/Brewfile.personal`、App Store アプリは `home/.mise.work.toml` と `home/.mise.personal.toml`
+- cask も App Store アプリも `home/.mise.work.toml` と `home/.mise.personal.toml` の `[bootstrap.packages]` に書く
 - `home/.mise.toml` にはアプリを置かない。両構成に共通するツール・dotfiles・macOS 設定だけを持つ
 - `[bootstrap.hooks]` は env をまたいで追記される。上書きはできない

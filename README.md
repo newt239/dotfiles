@@ -22,6 +22,7 @@ cd ~ && git clone https://github.com/newt239/dotfiles
 | `make work`     | 業務用マシンをセットアップする                 |
 | `make personal` | 私用マシンをセットアップする                   |
 | `make status`   | 宣言との差分と VSCode 拡張の差分を確認する     |
+| `make upgrade`  | 宣言したパッケージを更新する                   |
 | `make lint`     | ワークフロー・シェルスクリプト・TOML を検査する |
 | `make raycast`  | Raycast の設定取り込み画面を開く               |
 
@@ -40,7 +41,6 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 | ディレクトリ | 内容 |
 | ------------ | ---------------------------------------- |
 | `home/`      | `$HOME` と同じ構成で配置した設定ファイル |
-| `packages/`  | Homebrew で入れる cask のリスト          |
 | `.bin/`      | 宣言化できない処理のスクリプト           |
 | `config/`    | `$HOME` の外に置く設定ファイル           |
 | `editor/`    | VSCode の設定                            |
@@ -59,11 +59,10 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 | | 業務用 | 私用 |
 | --- | --- | --- |
 | コマンド | `make work` | `make personal` |
-| cask | `packages/Brewfile.work` | `packages/Brewfile.personal` |
-| App Store アプリ | `home/.mise.work.toml` | `home/.mise.personal.toml` |
+| アプリのリスト | `home/.mise.work.toml` | `home/.mise.personal.toml` |
 | コミット署名 | GPG | 1Password の SSH キー |
 
-`home/.mise.toml` は両方に共通する部分で、`[tools]`・dotfiles・macOS 設定・formula を持つ。アプリは置かない。
+cask と App Store アプリはどちらも各構成の `[bootstrap.packages]` に並ぶ。`home/.mise.toml` は両方に共通する部分で、`[tools]`・dotfiles・macOS 設定・formula を持つ。アプリは置かない。
 
 ## mise
 
@@ -73,12 +72,13 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 
 | 内容 | 置き場所 | 呼び出し元 |
 | ---------------------------------------------- | ------------------------------ | ---------------------- |
-| cask のインストール                            | `packages/` と `.bin/brew.sh`  | `pre-packages` フック  |
 | Dock のアプリ消去・Spotlight ホットキー・`pmset` | `.bin/defaults.sh`             | `post-defaults` フック |
 | VSCode 拡張のインストール                      | `editor/vscode.sh`             | `bootstrap` タスク     |
 | pnpm のインストール                            | `.bin/pnpm.sh`                 | `final` フック         |
 
-cask は mise が Homebrew 管理下のものを引き取れず `Homebrew owns this cask` で失敗するため、Homebrew に残している。formula と App Store アプリは `[bootstrap.packages]` で管理している。
+cask は `brew-cask:` で宣言する。Homebrew が所有している cask は mise が読み取り専用で「インストール済み」と認識するだけで、bundle にも Privacy & Security の許可にも触らない。所有権を mise に移したい cask は `brew uninstall --cask <name>` してから `make work` を実行する。
+
+`home/.mise.toml` の `min_version` は cask の pkg installer choices に対応した最初のバージョンを指す。`make work` は `.bin/init.sh` で毎回 `brew upgrade mise` する。
 
 pnpm は `[tools]` で固定しない。プロジェクトの `packageManager` を読んで自分でバージョンを切り替えるため、mise で別のバージョンに固定すると衝突する。グローバルにはメジャーだけを入れる。
 
