@@ -9,6 +9,7 @@
 "brew-cask:google-chrome" = "latest"
 "brew-cask:visual-studio-code" = "latest"
 "brew-cask:ghostty" = "latest"
+"brew-cask:cmux" = "latest"
 "brew-cask:docker-desktop" = "latest"
 "brew-cask:dbeaver-community" = "latest"
 "brew-cask:utm" = "latest"
@@ -19,6 +20,7 @@
 "brew-cask:arc" = "latest"
 
 # コミュニケーション
+"brew-cask:slack" = "latest"
 "brew-cask:discord" = "latest"
 "brew-cask:zoom" = "latest"
 
@@ -26,6 +28,7 @@
 "brew-cask:notion" = "latest"
 "brew-cask:figma" = "latest"
 "brew-cask:linear" = "latest"
+"brew-cask:microsoft-office" = "latest"
 
 # エンタメ
 "brew-cask:spotify" = "latest"
