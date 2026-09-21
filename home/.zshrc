@@ -9,6 +9,9 @@ setopt inc_append_history   # 実行時に履歴をファイルにに追加し�
 setopt share_history        # 履歴を他のシェルとリアルタイム共有する
 
 #################################  COMPLEMENT  #################################
+# Docker CLI の補完は compinit より前に fpath へ足す
+fpath=("$HOME/.docker/completions" $fpath)
+
 # enable completion
 autoload -Uz compinit && compinit
 
