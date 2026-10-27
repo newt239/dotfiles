@@ -23,7 +23,8 @@
       "Bash(git commit:*)",
       "Bash(git merge:*)",
       "Bash(git push:*)"
-    ]
+    ],
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
   "enableAllProjectMcpServers": true,
@@ -32,6 +33,40 @@
     "playwright",
     "context7"
   ],
+  "skillOverrides": {
+    "agents-sdk": "off",
+    "durable-objects": "off",
+    "workers-best-practices": "off",
+    "cloudflare-email-service": "off",
+    "cloudflare-one": "off",
+    "cloudflare-one-migrations": "off",
+    "sandbox-sdk": "off",
+    "sandbox-stable": "off",
+    "sandbox-next": "off",
+    "sandbox-migrate-to-next": "off",
+    "turnstile-spin": "off",
+    "data:analyze": "off",
+    "data:build-dashboard": "off",
+    "data:create-viz": "off",
+    "data:data-context-extractor": "off",
+    "data:data-visualization": "off",
+    "data:explore-data": "off",
+    "data:sql-queries": "off",
+    "data:statistical-analysis": "off",
+    "data:validate-data": "off",
+    "data:write-query": "off",
+    "anthropic-skills:docx": "off",
+    "anthropic-skills:pdf": "off",
+    "anthropic-skills:pptx": "off",
+    "anthropic-skills:xlsx": "off",
+    "anthropic-skills:skill-creator": "off",
+    "anthropic-skills:import-memory": "off",
+    "anthropic-skills:morning": "off",
+    "cloudflare": "off",
+    "wrangler": "off",
+    "web-perf": "off",
+    "commit": "off"
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -50,9 +85,9 @@
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true,
-    "figma@claude-plugins-official": true,
-    "github@claude-plugins-official": true
+    "figma@claude-plugins-official": false,
+    "github@claude-plugins-official": false,
+    "claude-security@claude-plugins-official": true
   },
   "language": "日本語",
   "skipDangerousModePermissionPrompt": true,
