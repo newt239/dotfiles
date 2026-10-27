@@ -33,12 +33,16 @@ login_shell = "/bin/zsh"
 "brew:pinentry-mac" = "latest"
 "brew:fzf" = "latest"
 "brew:zsh-autosuggestions" = "latest"
+"brew:go-task" = "latest"
+"brew:tflint" = "latest"
+"brew:watchman" = "latest"
 
 # プログラミング言語
 "brew:typst" = "latest"
 "brew:perl" = "latest"
 "brew:protobuf" = "latest"
 "brew:zig" = "latest"
+"brew:gcc" = "latest"
 
 # バージョン管理
 "brew:git-lfs" = "latest"
@@ -54,6 +58,12 @@ login_shell = "/bin/zsh"
 "brew:ios-deploy" = "latest" # iOSデバイスにアプリをデプロイするツール
 "brew:k6" = "latest"         # 負荷テストツール
 "brew:mas" = "latest"        # Mac App Storeのアプリをコマンドラインからインストールするツール
+
+# モバイル開発
+"brew:cocoapods" = "latest"
+"brew:xcodegen" = "latest"
+"brew:libimobiledevice" = "latest"
+"brew:mobile-dev-inc/tap/maestro" = "latest"
 
 [bootstrap.macos.dock]
 autohide = true
