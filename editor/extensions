@@ -1,9 +1,11 @@
 astro-build.astro-vscode
+bierner.lit-html
 bierner.markdown-mermaid
 biomejs.biome
 bradlc.vscode-tailwindcss
 chakra-ui.panda-css-vscode
 dariofuzinato.vue-peek
+denoland.vscode-deno
 expo.vscode-expo-tools
 formulahendry.code-runner
 github.vscode-github-actions
@@ -11,6 +13,7 @@ github.vscode-pull-request-github
 golang.go
 graphql.vscode-graphql
 graphql.vscode-graphql-syntax
+hediet.vscode-drawio
 james-yu.latex-workshop
 marp-team.marp-vscode
 mhutchie.git-graph
@@ -43,6 +46,7 @@ pkief.material-icon-theme
 prisma.prisma
 redhat.vscode-xml
 redhat.vscode-yaml
+runem.lit-plugin
 rust-lang.rust-analyzer
 stylelint.vscode-stylelint
 svelte.svelte-vscode

@@ -33,12 +33,16 @@ login_shell = "/bin/zsh"
 "brew:pinentry-mac" = "latest"
 "brew:fzf" = "latest"
 "brew:zsh-autosuggestions" = "latest"
+"brew:go-task" = "latest"
+"brew:tflint" = "latest"
+"brew:watchman" = "latest"
 
 # プログラミング言語
 "brew:typst" = "latest"
 "brew:perl" = "latest"
 "brew:protobuf" = "latest"
 "brew:zig" = "latest"
+"brew:gcc" = "latest"
 
 # バージョン管理
 "brew:git-lfs" = "latest"
@@ -55,16 +59,15 @@ login_shell = "/bin/zsh"
 "brew:k6" = "latest"         # 負荷テストツール
 "brew:mas" = "latest"        # Mac App Storeのアプリをコマンドラインからインストールするツール
 
+# モバイル開発
+"brew:cocoapods" = "latest"
+"brew:xcodegen" = "latest"
+"brew:libimobiledevice" = "latest"
+"brew:mobile-dev-inc/tap/maestro" = "latest"
+
 [bootstrap.macos.dock]
 autohide = true
-# 宣言外のアプリは Dock から消える。Finder とごみ箱は persistent-apps の対象外で常に残る
-apps = [
-  "/Applications/Google Chrome.app",
-  "/Applications/Visual Studio Code.app",
-  "/Applications/cmux.app",
-  "/Applications/Notion.app",
-  "/Applications/Slack.app",
-]
+# apps は home/.mise.work.toml と home/.mise.personal.toml で管理する
 
 [bootstrap.macos.finder]
 show_all_files = true
@@ -74,7 +77,7 @@ show_status_bar = true
 [bootstrap.macos.keyboard]
 initial_key_repeat = 10
 key_repeat = 1
-fn_state = true
+fn_state = false
 
 [bootstrap.macos.trackpad]
 tap_to_click = true
@@ -91,8 +94,13 @@ DSDontWriteNetworkStores = true
 [bootstrap.macos.defaults."com.apple.finder"]
 ShowTabView = true
 
+# ShowDate は 0 で「スペースがある場合」
 [bootstrap.macos.defaults."com.apple.menuextra.clock"]
-DateFormat = "d/MMM(EEE) HH:mm:ss"
+Show24Hour = true
+ShowAMPM = true
+ShowDate = 0
+ShowDayOfWeek = true
+ShowSeconds = true
 
 # アプリ Exposé: 3 本指で下にスワイプ
 [bootstrap.macos.defaults."com.apple.dock"]

@@ -3,6 +3,7 @@
 ## コミットメッセージ
 
 - 1 行以内で書く。本文は付けない
+- `Co-Authored-By:` トレーラーは付けてよい
 - Conventional Commits の prefix (`feat:` / `fix:` / `chore:` / `docs:`) を付ける
 - 目的ごとにコミットを分ける
 
