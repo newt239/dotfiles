@@ -62,7 +62,7 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 | アプリのリスト | `home/.mise.work.toml` | `home/.mise.personal.toml` |
 | コミット署名 | GPG | 1Password の SSH キー |
 
-cask と App Store アプリはどちらも各構成の `[bootstrap.packages]` に並ぶ。`home/.mise.toml` は両方に共通する部分で、`[tools]`・dotfiles・macOS 設定・formula を持つ。アプリは置かない。
+cask と App Store アプリはどちらも各構成の `[bootstrap.packages]` に並ぶ。Dock に並べるアプリも各構成の `[bootstrap.macos.dock]` に書く。`home/.mise.toml` は両方に共通する部分で、`[tools]`・dotfiles・macOS 設定・formula を持つ。アプリは置かない。
 
 ## mise
 

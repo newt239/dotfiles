@@ -1,6 +1,16 @@
 # 業務用マシンのアプリ。`mise bootstrap -E work` で共通設定と一緒に適用される
 # personal とは独立した完全なリスト
 
+[bootstrap.macos.dock]
+# 宣言外のアプリは Dock から消える。Finder とごみ箱は persistent-apps の対象外で常に残る
+apps = [
+  "/Applications/Google Chrome.app",
+  "/Applications/Visual Studio Code.app",
+  "/Applications/cmux.app",
+  "/Applications/Notion.app",
+  "/Applications/Slack.app",
+]
+
 [bootstrap.packages]
 # 開発
 "brew-cask:google-chrome" = "latest"

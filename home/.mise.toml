@@ -57,14 +57,7 @@ login_shell = "/bin/zsh"
 
 [bootstrap.macos.dock]
 autohide = true
-# 宣言外のアプリは Dock から消える。Finder とごみ箱は persistent-apps の対象外で常に残る
-apps = [
-  "/Applications/Google Chrome.app",
-  "/Applications/Visual Studio Code.app",
-  "/Applications/cmux.app",
-  "/Applications/Notion.app",
-  "/Applications/Slack.app",
-]
+# apps は home/.mise.work.toml と home/.mise.personal.toml で管理する
 
 [bootstrap.macos.finder]
 show_all_files = true

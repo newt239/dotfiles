@@ -4,6 +4,19 @@
 [dotfiles]
 "~/.gitconfig.local" = "~/dotfiles/config/git/gitconfig.personal"
 
+[bootstrap.macos.dock]
+# 宣言外のアプリは Dock から消える。Finder とごみ箱は persistent-apps の対象外で常に残る
+apps = [
+  "/Applications/Google Chrome.app",
+  "/Applications/Visual Studio Code.app",
+  "/Applications/Notion.app",
+  "/Applications/Slack.app",
+  "/Applications/cmux.app",
+  "/Applications/Claude.app",
+  "/Applications/Discord.app",
+  "/Applications/LINE.app",
+]
+
 [bootstrap.packages]
 # 開発
 "brew-cask:google-chrome" = "latest"
