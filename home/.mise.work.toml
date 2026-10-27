@@ -24,7 +24,6 @@ apps = [
 # ブラウザ
 "brew-cask:firefox" = "latest"
 "brew-cask:microsoft-edge" = "latest"
-"brew-cask:arc" = "latest"
 
 # コミュニケーション
 "brew-cask:slack" = "latest"
