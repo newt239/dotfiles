@@ -91,8 +91,13 @@ DSDontWriteNetworkStores = true
 [bootstrap.macos.defaults."com.apple.finder"]
 ShowTabView = true
 
+# ShowDate は 0 で「スペースがある場合」
 [bootstrap.macos.defaults."com.apple.menuextra.clock"]
-DateFormat = "d/MMM(EEE) HH:mm:ss"
+Show24Hour = true
+ShowAMPM = true
+ShowDate = 0
+ShowDayOfWeek = true
+ShowSeconds = true
 
 # アプリ Exposé: 3 本指で下にスワイプ
 [bootstrap.macos.defaults."com.apple.dock"]
