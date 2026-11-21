@@ -55,4 +55,5 @@
     },
   },
   "hediet.vscode-drawio.resizeImages": null,
+  "git.openRepositoryInParentFolders": "never",
 }

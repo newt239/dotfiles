@@ -10,23 +10,22 @@
       "Bash(pnpm install:*)",
       "Bash(pnpm run:*)",
       "Bash(grep:*)",
-      "Bash(gh pr create:*)"
-    ],
-    "deny": [
-      "Bash(git reset:*)",
-      "Bash(git rebase:*)"
-    ],
-    "ask": [
-      "Bash(rm:*)",
+      "Bash(gh pr create:*)",
       "Bash(git checkout:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git merge:*)",
       "Bash(git push:*)"
     ],
+    "deny": [],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(git reset:*)",
+      "Bash(git rebase:*)"
+    ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "fable",
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "deepwiki",
@@ -65,7 +64,12 @@
     "cloudflare": "off",
     "wrangler": "off",
     "web-perf": "off",
-    "commit": "off"
+    "commit": "off",
+    "anthropic-skills:deep-research": "off",
+    "anthropic-skills:google-workspace": "off",
+    "anthropic-skills:alt-text-generator": "off",
+    "anthropic-skills:gourmet-map-to-notion": "off",
+    "anthropic-skills:movie-showtime-planner": "off"
   },
   "hooks": {
     "PreToolUse": [
