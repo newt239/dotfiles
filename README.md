@@ -47,6 +47,7 @@ mise bootstrap -C home -E work --yes --force-dotfiles
 ## 注意
 
 - `mise use -g` は設定が二重管理になるため使わない
+- `[tools]` と GitHub Actions のバージョンは固定し、Renovate の PR で更新する。公開から 7 日経ったものだけが対象
 - pnpm はプロジェクトの `packageManager` に従わせるため `[tools]` で固定しない
 - `[bootstrap.hooks]` は構成をまたいで追記される
 - Homebrew で入れた cask を mise に移すには `brew uninstall --cask <name>` してから再実行する
