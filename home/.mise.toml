@@ -12,6 +12,7 @@ uv = "0.10.10"
 rust = "1.94.0"
 node = "24.21.0"
 "npm:@openai/codex" = "0.130.0"
+terraform = "1.17.2"
 
 # シンボリックリンクの位置基準で解決されるため source は絶対パスで書く
 [dotfiles]
