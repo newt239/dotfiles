@@ -55,6 +55,10 @@ if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
   source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
+if [ -f /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh ]; then
+  source /opt/homebrew/share/zsh-abbr/zsh-abbr.zsh
+fi
+
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools
