@@ -1,0 +1,1 @@
+abbr "gm"="git checkout main && git pull origin main"
