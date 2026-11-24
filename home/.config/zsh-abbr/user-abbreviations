@@ -1,1 +1,2 @@
 abbr "gm"="git checkout main && git pull origin main"
+abbr "c"="code ."
